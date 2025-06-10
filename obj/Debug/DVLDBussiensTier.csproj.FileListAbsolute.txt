@@ -1,0 +1,6 @@
+E:\Desktop\DVLDBussiensTier\obj\Debug\DVLDBussiensTier.csproj.AssemblyReference.cache
+E:\Desktop\DVLDBussiensTier\obj\Debug\DVLDBussiensTier.MainForm.resources
+E:\Desktop\DVLDBussiensTier\obj\Debug\DVLDBussiensTier.ManagePeople1.resources
+E:\Desktop\DVLDBussiensTier\obj\Debug\DVLDBussiensTier.Properties.Resources.resources
+E:\Desktop\DVLDBussiensTier\obj\Debug\DVLDBussiensTier.csproj.GenerateResource.cache
+E:\Desktop\DVLDBussiensTier\obj\Debug\DVLDBussiensTier.csproj.CoreCompileInputs.cache
