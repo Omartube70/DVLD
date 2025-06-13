@@ -4,3 +4,9 @@ D:\Driving&Vehicle Project\DVLD_DataAcsses\obj\Debug\DVLD_DataAcsses.csproj.Asse
 D:\Driving&Vehicle Project\DVLD_DataAcsses\obj\Debug\DVLD_DataAcsses.csproj.CoreCompileInputs.cache
 D:\Driving&Vehicle Project\DVLD_DataAcsses\obj\Debug\Drving&VehicleDataAcssecTier.dll
 D:\Driving&Vehicle Project\DVLD_DataAcsses\obj\Debug\Drving&VehicleDataAcssecTier.pdb
+D:\DVLD\DVLD_DataAcsses\bin\Debug\Drving&VehicleDataAcssecTier.dll
+D:\DVLD\DVLD_DataAcsses\bin\Debug\Drving&VehicleDataAcssecTier.pdb
+D:\DVLD\DVLD_DataAcsses\obj\Debug\DVLD_DataAcsses.csproj.AssemblyReference.cache
+D:\DVLD\DVLD_DataAcsses\obj\Debug\DVLD_DataAcsses.csproj.CoreCompileInputs.cache
+D:\DVLD\DVLD_DataAcsses\obj\Debug\Drving&VehicleDataAcssecTier.dll
+D:\DVLD\DVLD_DataAcsses\obj\Debug\Drving&VehicleDataAcssecTier.pdb
