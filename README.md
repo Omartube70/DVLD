@@ -57,4 +57,4 @@
 
 في حال وجود أي استفسار، يمكنك مراسلتي على:
 - GitHub Issues
-- أو عبر البريد الإلكتروني: sellama.malek.dev@gmail.com
+- أو عبر البريد الإلكتروني: omartubefaheen@gmail.com
