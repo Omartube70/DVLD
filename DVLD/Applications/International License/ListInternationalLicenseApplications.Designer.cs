@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class ListInternationalLicenseApplications
     {
@@ -134,7 +134,7 @@
             // 
             // showDetailsToolStripMenuItem
             // 
-            this.showDetailsToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.user__1_4;
+            this.showDetailsToolStripMenuItem.Image = global::DVLD.Properties.Resources.user__1_4;
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
             this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(279, 26);
             this.showDetailsToolStripMenuItem.Text = "Show Person Details";
@@ -142,7 +142,7 @@
             // 
             // showLicenseToolStripMenuItem
             // 
-            this.showLicenseToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_driver_license_324;
+            this.showLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_driver_license_324;
             this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
             this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(279, 26);
             this.showLicenseToolStripMenuItem.Text = "Show License Details";
@@ -150,7 +150,7 @@
             // 
             // showPersonLicenseHistoryToolStripMenuItem
             // 
-            this.showPersonLicenseHistoryToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.user__1_3;
+            this.showPersonLicenseHistoryToolStripMenuItem.Image = global::DVLD.Properties.Resources.user__1_3;
             this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
             this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(279, 26);
             this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
@@ -170,7 +170,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label3.Image = global::DVLDBussiensTier.Properties.Resources.icons8_international_323;
+            this.label3.Image = global::DVLD.Properties.Resources.icons8_international_323;
             this.label3.Location = new System.Drawing.Point(854, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 43);
@@ -179,7 +179,7 @@
             // lblAddNewApplication
             // 
             this.lblAddNewApplication.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblAddNewApplication.Image = global::DVLDBussiensTier.Properties.Resources.icons8_add_properties_32;
+            this.lblAddNewApplication.Image = global::DVLD.Properties.Resources.icons8_add_properties_32;
             this.lblAddNewApplication.Location = new System.Drawing.Point(1295, 352);
             this.lblAddNewApplication.Name = "lblAddNewApplication";
             this.lblAddNewApplication.Size = new System.Drawing.Size(89, 55);
@@ -204,7 +204,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Image = global::DVLDBussiensTier.Properties.Resources._28336371;
+            this.label1.Image = global::DVLD.Properties.Resources._28336371;
             this.label1.Location = new System.Drawing.Point(498, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(483, 290);

@@ -1,6 +1,6 @@
 ﻿using Drving_VehicleBusinessTier;
-using DVLDBussiensTier.Applications.Local_Driving_License;
-using DVLDBussiensTier.Tests1;
+using DVLD.Applications.Local_Driving_License;
+using DVLD.Tests1;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLDBussiensTier.Applications
+namespace DVLD.Applications
 {
     public partial class ListLocalDrivingLicenseApplications : Form
     {

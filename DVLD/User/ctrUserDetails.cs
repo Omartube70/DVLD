@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Drving_VehicleBusinessTier;
-using DVLDBussiensTier.Properties;
+using DVLD.Properties;
 
-namespace DVLDBussiensTier
+namespace DVLD
 {
     public partial class ctrUserDetails : UserControl
     {
@@ -27,7 +27,6 @@ namespace DVLDBussiensTier
         public void LoadUserDetails(int UserID)
         {
             _User = clsUser.FindByUserID(UserID);
-            _UserID = _User.UserID;
 
 
             if (_User == null)
@@ -37,6 +36,7 @@ namespace DVLDBussiensTier
                 return;
             }
 
+            _UserID = _User.UserID;
             _FillUserInfo();
         }
 

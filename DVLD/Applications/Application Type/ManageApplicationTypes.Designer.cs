@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier.Applications
+﻿namespace DVLD.Applications
 {
     partial class ManageApplicationTypes
     {
@@ -124,7 +124,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Image = global::DVLDBussiensTier.Properties.Resources._2833637;
+            this.label1.Image = global::DVLD.Properties.Resources._2833637;
             this.label1.Location = new System.Drawing.Point(167, -9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(483, 290);

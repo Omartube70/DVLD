@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{14F38AE8-1FCA-4C87-A803-5A438727563F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DVLDBussiensTier</RootNamespace>
-    <AssemblyName>DVLDBussiensTier</AssemblyName>
+    <RootNamespace>DVLD</RootNamespace>
+    <AssemblyName>DVLD</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -68,6 +68,7 @@
     <Compile Include="Applications\Local Driving License\ListLocalDrivingLicenseApplications.Designer.cs">
       <DependentUpon>ListLocalDrivingLicenseApplications.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global Classes\SimpleEncryptor.cs" />
     <Compile Include="Global Classes\clsUtil.cs" />
     <Compile Include="People\AddEditPersonInfo.cs">
       <SubType>Form</SubType>

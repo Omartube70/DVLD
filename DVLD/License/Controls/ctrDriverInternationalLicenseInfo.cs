@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Drving_VehicleBusinessTier;
-using DVLDBussiensTier.Properties;
+using DVLD.Properties;
 
-namespace DVLDBussiensTier
+namespace DVLD
 {
     public partial class ctrDriverInternationalInterNationalLicenInfo : UserControl
     {

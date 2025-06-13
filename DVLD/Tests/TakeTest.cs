@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Drving_VehicleBusinessTier;
-using DVLDBussiensTier.Properties;
+using DVLD.Properties;
 
 
-namespace DVLDBussiensTier.Tests1
+namespace DVLD.Tests1
 {
     public partial class TakeTest : Form
     {

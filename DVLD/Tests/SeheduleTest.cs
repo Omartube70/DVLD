@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Drving_VehicleBusinessTier;
-using DVLDBussiensTier.Properties;
+using DVLD.Properties;
 using static System.Net.Mime.MediaTypeNames;
 using static Drving_VehicleBusinessTier.clsTestType;
 
 
 
-namespace DVLDBussiensTier.Tests1
+namespace DVLD.Tests1
 {
     public partial class SeheduleTest : Form
     {

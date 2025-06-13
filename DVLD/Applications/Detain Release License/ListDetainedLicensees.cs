@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using Drving_VehicleBusinessTier;
 
-namespace DVLDBussiensTier.Detain
+namespace DVLD.Detain
 {
     public partial class ListDetainedLicenses : Form
     {

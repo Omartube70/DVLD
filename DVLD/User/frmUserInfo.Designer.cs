@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class frmUserInfo
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserInfo));
-            this.ctrUserDetails1 = new DVLDBussiensTier.ctrUserDetails();
+            this.ctrUserDetails1 = new DVLD.ctrUserDetails();
             this.btClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 

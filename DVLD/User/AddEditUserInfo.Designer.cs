@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class AddEditUserInfo
     {
@@ -33,7 +33,7 @@
             this.tabUserDetails = new System.Windows.Forms.TabControl();
             this.PersonalInfo = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
-            this.personDetailsControl = new DVLDBussiensTier.ctrPersonCardWithFilters();
+            this.personDetailsControl = new DVLD.ctrPersonCardWithFilters();
             this.LoginInfo = new System.Windows.Forms.TabPage();
             this.chbIsActive = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@
             this.btnNext.BackColor = System.Drawing.Color.White;
             this.btnNext.FlatAppearance.BorderSize = 2;
             this.btnNext.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.btnNext.Image = global::DVLDBussiensTier.Properties.Resources.user__2_2;
+            this.btnNext.Image = global::DVLD.Properties.Resources.user__2_2;
             this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNext.Location = new System.Drawing.Point(1005, 546);
             this.btnNext.Name = "btnNext";
@@ -141,7 +141,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label2.Image = global::DVLDBussiensTier.Properties.Resources.person_boy1;
+            this.label2.Image = global::DVLD.Properties.Resources.person_boy1;
             this.label2.Location = new System.Drawing.Point(231, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 49);
@@ -181,7 +181,7 @@
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label10.Image = global::DVLDBussiensTier.Properties.Resources.password4;
+            this.label10.Image = global::DVLD.Properties.Resources.password4;
             this.label10.Location = new System.Drawing.Point(231, 260);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(70, 49);
@@ -211,7 +211,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label4.Image = global::DVLDBussiensTier.Properties.Resources.password2;
+            this.label4.Image = global::DVLD.Properties.Resources.password2;
             this.label4.Location = new System.Drawing.Point(231, 193);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 49);

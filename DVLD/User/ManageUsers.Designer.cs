@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class ManageUsers
     {
@@ -154,7 +154,7 @@
             // 
             // AddNewUserToolStripMenuItem
             // 
-            this.AddNewUserToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.invite_friends11;
+            this.AddNewUserToolStripMenuItem.Image = global::DVLD.Properties.Resources.invite_friends11;
             this.AddNewUserToolStripMenuItem.Name = "AddNewUserToolStripMenuItem";
             this.AddNewUserToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.AddNewUserToolStripMenuItem.Text = "Add New User";
@@ -178,7 +178,7 @@
             // 
             // ChangePasswordToolStripMenuItem
             // 
-            this.ChangePasswordToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.password5;
+            this.ChangePasswordToolStripMenuItem.Image = global::DVLD.Properties.Resources.password5;
             this.ChangePasswordToolStripMenuItem.Name = "ChangePasswordToolStripMenuItem";
             this.ChangePasswordToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.ChangePasswordToolStripMenuItem.Text = "Change Password";
@@ -261,7 +261,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Image = global::DVLDBussiensTier.Properties.Resources.download5;
+            this.label1.Image = global::DVLD.Properties.Resources.download5;
             this.label1.Location = new System.Drawing.Point(209, -18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(483, 290);

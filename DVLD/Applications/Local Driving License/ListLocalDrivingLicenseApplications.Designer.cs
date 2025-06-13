@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier.Applications
+﻿namespace DVLD.Applications
 {
     partial class ListLocalDrivingLicenseApplications
     {
@@ -164,7 +164,7 @@
             // 
             // EditApplicationToolStripMenuItem
             // 
-            this.EditApplicationToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.account_settings1;
+            this.EditApplicationToolStripMenuItem.Image = global::DVLD.Properties.Resources.account_settings1;
             this.EditApplicationToolStripMenuItem.Name = "EditApplicationToolStripMenuItem";
             this.EditApplicationToolStripMenuItem.Size = new System.Drawing.Size(307, 26);
             this.EditApplicationToolStripMenuItem.Text = "Edit Application";
@@ -172,7 +172,7 @@
             // 
             // DeleteToolStripMenuItem
             // 
-            this.DeleteToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.delete_row1;
+            this.DeleteToolStripMenuItem.Image = global::DVLD.Properties.Resources.delete_row1;
             this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
             this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(307, 26);
             this.DeleteToolStripMenuItem.Text = "Delete Application";
@@ -185,7 +185,7 @@
             // 
             // CancelApplicationoolStripMenuItem
             // 
-            this.CancelApplicationoolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.close;
+            this.CancelApplicationoolStripMenuItem.Image = global::DVLD.Properties.Resources.close;
             this.CancelApplicationoolStripMenuItem.Name = "CancelApplicationoolStripMenuItem";
             this.CancelApplicationoolStripMenuItem.Size = new System.Drawing.Size(307, 26);
             this.CancelApplicationoolStripMenuItem.Text = "Cancel Application";
@@ -202,14 +202,14 @@
             this.seheduleVisionToolStripMenuItem,
             this.seheduleWrittenTestToolStripMenuItem,
             this.seheduleStrettTestToolStripMenuItem});
-            this.SehduleTestslToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources._48388561;
+            this.SehduleTestslToolStripMenuItem.Image = global::DVLD.Properties.Resources._48388561;
             this.SehduleTestslToolStripMenuItem.Name = "SehduleTestslToolStripMenuItem";
             this.SehduleTestslToolStripMenuItem.Size = new System.Drawing.Size(307, 26);
             this.SehduleTestslToolStripMenuItem.Text = "Sehdule Tests";
             // 
             // seheduleVisionToolStripMenuItem
             // 
-            this.seheduleVisionToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_vision_321;
+            this.seheduleVisionToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_vision_321;
             this.seheduleVisionToolStripMenuItem.Name = "seheduleVisionToolStripMenuItem";
             this.seheduleVisionToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
             this.seheduleVisionToolStripMenuItem.Text = "Sehedule Vision Test";
@@ -217,7 +217,7 @@
             // 
             // seheduleWrittenTestToolStripMenuItem
             // 
-            this.seheduleWrittenTestToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_test_results_3211;
+            this.seheduleWrittenTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_test_results_3211;
             this.seheduleWrittenTestToolStripMenuItem.Name = "seheduleWrittenTestToolStripMenuItem";
             this.seheduleWrittenTestToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
             this.seheduleWrittenTestToolStripMenuItem.Text = "Sehedule Written Test";
@@ -225,7 +225,7 @@
             // 
             // seheduleStrettTestToolStripMenuItem
             // 
-            this.seheduleStrettTestToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_amphibious_vehicle_321;
+            this.seheduleStrettTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_amphibious_vehicle_321;
             this.seheduleStrettTestToolStripMenuItem.Name = "seheduleStrettTestToolStripMenuItem";
             this.seheduleStrettTestToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
             this.seheduleStrettTestToolStripMenuItem.Text = "Sehedule Street Test";
@@ -238,7 +238,7 @@
             // 
             // IssueDrivinglToolStripMenuItem
             // 
-            this.IssueDrivinglToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_driver_license_324;
+            this.IssueDrivinglToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_driver_license_324;
             this.IssueDrivinglToolStripMenuItem.Name = "IssueDrivinglToolStripMenuItem";
             this.IssueDrivinglToolStripMenuItem.Size = new System.Drawing.Size(307, 26);
             this.IssueDrivinglToolStripMenuItem.Text = "Issue Driving License (First Time)";
@@ -251,7 +251,7 @@
             // 
             // showLicenseToolStripMenuItem
             // 
-            this.showLicenseToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_driver_license_324;
+            this.showLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_driver_license_324;
             this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
             this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(307, 26);
             this.showLicenseToolStripMenuItem.Text = "Show License";
@@ -264,7 +264,7 @@
             // 
             // showPersonLicenseHistoryToolStripMenuItem
             // 
-            this.showPersonLicenseHistoryToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.user__1_3;
+            this.showPersonLicenseHistoryToolStripMenuItem.Image = global::DVLD.Properties.Resources.user__1_3;
             this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
             this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(307, 26);
             this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
@@ -294,7 +294,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label3.Image = global::DVLDBussiensTier.Properties.Resources.icons8_local_322;
+            this.label3.Image = global::DVLD.Properties.Resources.icons8_local_322;
             this.label3.Location = new System.Drawing.Point(853, 116);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 43);
@@ -303,7 +303,7 @@
             // lblAddNewApplication
             // 
             this.lblAddNewApplication.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblAddNewApplication.Image = global::DVLDBussiensTier.Properties.Resources.icons8_add_properties_32;
+            this.lblAddNewApplication.Image = global::DVLD.Properties.Resources.icons8_add_properties_32;
             this.lblAddNewApplication.Location = new System.Drawing.Point(1294, 320);
             this.lblAddNewApplication.Name = "lblAddNewApplication";
             this.lblAddNewApplication.Size = new System.Drawing.Size(89, 55);
@@ -328,7 +328,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Image = global::DVLDBussiensTier.Properties.Resources._28336371;
+            this.label1.Image = global::DVLD.Properties.Resources._28336371;
             this.label1.Location = new System.Drawing.Point(496, -23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(483, 290);

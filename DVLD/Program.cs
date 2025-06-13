@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DVLDBussiensTier.Users.Login;
+using DVLD.Users.Login;
 
-namespace DVLDBussiensTier
+namespace DVLD
 {
     internal static class Program
     {

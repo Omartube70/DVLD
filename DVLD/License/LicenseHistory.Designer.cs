@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class LicenseHistory
     {
@@ -49,7 +49,7 @@
             this.contextMenuStrip1International = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
-            this.ctrFindPersonAndShowDetails1 = new DVLDBussiensTier.ctrPersonCardWithFilters();
+            this.ctrFindPersonAndShowDetails1 = new DVLD.ctrPersonCardWithFilters();
             this.gbDriverLicense.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tpLocal.SuspendLayout();
@@ -74,7 +74,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Image = global::DVLDBussiensTier.Properties.Resources.images__2_5;
+            this.label1.Image = global::DVLD.Properties.Resources.images__2_5;
             this.label1.Location = new System.Drawing.Point(0, 337);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(206, 194);
@@ -174,7 +174,7 @@
             // 
             // showLicenseToolStripMenuItem
             // 
-            this.showLicenseToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_driver_license_324;
+            this.showLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_driver_license_324;
             this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
             this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.showLicenseToolStripMenuItem.Text = "Show License Info";
@@ -251,7 +251,7 @@
             // 
             // toolStripMenuItem1
             // 
-            this.toolStripMenuItem1.Image = global::DVLDBussiensTier.Properties.Resources.icons8_driver_license_324;
+            this.toolStripMenuItem1.Image = global::DVLD.Properties.Resources.icons8_driver_license_324;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(205, 26);
             this.toolStripMenuItem1.Text = "Show License Info";

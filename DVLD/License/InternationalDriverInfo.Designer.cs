@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class InternationalDriverInfo
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InternationalDriverInfo));
-            this.ctrDriverInternationalInterNationalLicenInfo1 = new DVLDBussiensTier.ctrDriverInternationalInterNationalLicenInfo();
+            this.ctrDriverInternationalInterNationalLicenInfo1 = new DVLD.ctrDriverInternationalInterNationalLicenInfo();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -56,7 +56,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Image = global::DVLDBussiensTier.Properties.Resources.images__2_4;
+            this.label1.Image = global::DVLD.Properties.Resources.images__2_4;
             this.label1.Location = new System.Drawing.Point(347, -31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(483, 245);

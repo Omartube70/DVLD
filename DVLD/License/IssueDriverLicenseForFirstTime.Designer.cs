@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier.Applications
+﻿namespace DVLD.Applications
 {
     partial class IssueDriverLicenseForFirstTime
     {
@@ -59,7 +59,7 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label9.Image = global::DVLDBussiensTier.Properties.Resources.icons8_test_results_3214;
+            this.label9.Image = global::DVLD.Properties.Resources.icons8_test_results_3214;
             this.label9.Location = new System.Drawing.Point(113, 399);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 33);

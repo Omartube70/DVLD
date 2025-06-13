@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier.Tests1
+﻿namespace DVLD.Tests1
 {
     partial class VisionTestAppoinments
     {
@@ -85,7 +85,7 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.editToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_test_results_3213;
+            this.editToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_test_results_3213;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.editToolStripMenuItem.Text = "Edit";
@@ -94,7 +94,7 @@
             // takeTestToolStripMenuItem
             // 
             this.takeTestToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.takeTestToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources._483885611;
+            this.takeTestToolStripMenuItem.Image = global::DVLD.Properties.Resources._483885611;
             this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
             this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.takeTestToolStripMenuItem.Text = "Take Test";
@@ -133,7 +133,7 @@
             // lblAddNewTest
             // 
             this.lblAddNewTest.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblAddNewTest.Image = global::DVLDBussiensTier.Properties.Resources.icons8_add_time_32;
+            this.lblAddNewTest.Image = global::DVLD.Properties.Resources.icons8_add_time_32;
             this.lblAddNewTest.Location = new System.Drawing.Point(823, 582);
             this.lblAddNewTest.Name = "lblAddNewTest";
             this.lblAddNewTest.Size = new System.Drawing.Size(89, 46);
@@ -160,7 +160,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pictureBox1.Image = global::DVLDBussiensTier.Properties.Resources.images__1_;
+            this.pictureBox1.Image = global::DVLD.Properties.Resources.images__1_;
             this.pictureBox1.Location = new System.Drawing.Point(351, -55);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(241, 192);

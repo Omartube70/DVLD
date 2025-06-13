@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class ListDrivers
     {
@@ -143,7 +143,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Image = global::DVLDBussiensTier.Properties.Resources.vehicle2;
+            this.label1.Image = global::DVLD.Properties.Resources.vehicle2;
             this.label1.Location = new System.Drawing.Point(360, -25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(599, 341);

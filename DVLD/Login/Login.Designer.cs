@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier.Users.Login
+﻿namespace DVLD.Users.Login
 {
     partial class Login
     {
@@ -201,7 +201,7 @@
             // 
             this.btLogin.BackColor = System.Drawing.Color.White;
             this.btLogin.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btLogin.Image = global::DVLDBussiensTier.Properties.Resources.diskette__1_1;
+            this.btLogin.Image = global::DVLD.Properties.Resources.diskette__1_1;
             this.btLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btLogin.Location = new System.Drawing.Point(279, 349);
             this.btLogin.Name = "btLogin";
@@ -214,7 +214,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = global::DVLDBussiensTier.Properties.Resources.images;
+            this.pictureBox1.Image = global::DVLD.Properties.Resources.images;
             this.pictureBox1.Location = new System.Drawing.Point(91, 30);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(226, 228);
@@ -226,7 +226,7 @@
             this.btClose.BackColor = System.Drawing.Color.Transparent;
             this.btClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.btClose.Image = global::DVLDBussiensTier.Properties.Resources.closeBlack321;
+            this.btClose.Image = global::DVLD.Properties.Resources.closeBlack321;
             this.btClose.Location = new System.Drawing.Point(465, 12);
             this.btClose.Name = "btClose";
             this.btClose.Size = new System.Drawing.Size(55, 39);
@@ -236,7 +236,7 @@
             // 
             // label10
             // 
-            this.label10.Image = global::DVLDBussiensTier.Properties.Resources.password31;
+            this.label10.Image = global::DVLD.Properties.Resources.password31;
             this.label10.Location = new System.Drawing.Point(178, 239);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(36, 43);
@@ -244,7 +244,7 @@
             // 
             // label9
             // 
-            this.label9.Image = global::DVLDBussiensTier.Properties.Resources.user__2_1;
+            this.label9.Image = global::DVLD.Properties.Resources.user__2_1;
             this.label9.Location = new System.Drawing.Point(178, 166);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(36, 43);

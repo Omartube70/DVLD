@@ -95,7 +95,7 @@ namespace Drving_VehicleDataAcssecTier
                     // The record was found
                     isFound = true;
 
-                    UserID = (int)reader["PersonID"];
+                    UserID = (int)reader["UserID"];
                     PersonID = (int)reader["PersonID"];
                     IsActive = (bool)reader["IsActive"];
 

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLDBussiensTier.Applications.Local_Driving_License
+namespace DVLD.Applications.Local_Driving_License
 {
     public partial class frmLocalDrivingLicenseApplicationInfo : Form
     {

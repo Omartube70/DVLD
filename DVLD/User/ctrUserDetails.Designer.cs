@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class ctrUserDetails
     {
@@ -35,7 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblUserID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ctrPersonDetails1 = new DVLDBussiensTier.ctrPersonDetails();
+            this.ctrPersonDetails1 = new DVLD.ctrPersonDetails();
             this.gbLoginInformation.SuspendLayout();
             this.SuspendLayout();
             // 

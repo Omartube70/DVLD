@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier.Detain
+﻿namespace DVLD.Detain
 {
     partial class ListDetainedLicenses
     {
@@ -149,7 +149,7 @@
             // 
             // showDetailsToolStripMenuItem
             // 
-            this.showDetailsToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.user__1_21;
+            this.showDetailsToolStripMenuItem.Image = global::DVLD.Properties.Resources.user__1_21;
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
             this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(279, 26);
             this.showDetailsToolStripMenuItem.Text = "Show Person Details";
@@ -157,7 +157,7 @@
             // 
             // showLicenseToolStripMenuItem
             // 
-            this.showLicenseToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_driver_license_324;
+            this.showLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_driver_license_324;
             this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
             this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(279, 26);
             this.showLicenseToolStripMenuItem.Text = "Show License";
@@ -165,7 +165,7 @@
             // 
             // showPersonLicenseHistoryToolStripMenuItem
             // 
-            this.showPersonLicenseHistoryToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.user__1_3;
+            this.showPersonLicenseHistoryToolStripMenuItem.Image = global::DVLD.Properties.Resources.user__1_3;
             this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
             this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(279, 26);
             this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
@@ -173,7 +173,7 @@
             // 
             // ReleaseDetainToolStripMenuItem
             // 
-            this.ReleaseDetainToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.account_settings1;
+            this.ReleaseDetainToolStripMenuItem.Image = global::DVLD.Properties.Resources.account_settings1;
             this.ReleaseDetainToolStripMenuItem.Name = "ReleaseDetainToolStripMenuItem";
             this.ReleaseDetainToolStripMenuItem.Size = new System.Drawing.Size(279, 26);
             this.ReleaseDetainToolStripMenuItem.Text = "Release Detained License";
@@ -182,7 +182,7 @@
             // lblRelease
             // 
             this.lblRelease.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblRelease.Image = global::DVLDBussiensTier.Properties.Resources.dsssssssss;
+            this.lblRelease.Image = global::DVLD.Properties.Resources.dsssssssss;
             this.lblRelease.Location = new System.Drawing.Point(1168, 311);
             this.lblRelease.Name = "lblRelease";
             this.lblRelease.Size = new System.Drawing.Size(89, 84);
@@ -192,7 +192,7 @@
             // lblAddNewDetain
             // 
             this.lblAddNewDetain.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblAddNewDetain.Image = global::DVLDBussiensTier.Properties.Resources.icons8_hand_64;
+            this.lblAddNewDetain.Image = global::DVLD.Properties.Resources.icons8_hand_64;
             this.lblAddNewDetain.Location = new System.Drawing.Point(1286, 311);
             this.lblAddNewDetain.Name = "lblAddNewDetain";
             this.lblAddNewDetain.Size = new System.Drawing.Size(89, 84);
@@ -217,7 +217,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Image = global::DVLDBussiensTier.Properties.Resources.images1;
+            this.label1.Image = global::DVLD.Properties.Resources.images1;
             this.label1.Location = new System.Drawing.Point(493, -3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(483, 290);

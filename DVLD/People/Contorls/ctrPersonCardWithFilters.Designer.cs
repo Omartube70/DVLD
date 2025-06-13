@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class ctrPersonCardWithFilters
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrPersonCardWithFilters));
-            this.ctrPersonDetails1 = new DVLDBussiensTier.ctrPersonDetails();
+            this.ctrPersonDetails1 = new DVLD.ctrPersonDetails();
             this.gbFilter = new System.Windows.Forms.GroupBox();
             this.lblFilter = new System.Windows.Forms.Label();
             this.lblAddNewPerson = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             // lblFilter
             // 
             this.lblFilter.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblFilter.Image = global::DVLDBussiensTier.Properties.Resources.person_boy__2_;
+            this.lblFilter.Image = global::DVLD.Properties.Resources.person_boy__2_;
             this.lblFilter.Location = new System.Drawing.Point(608, 23);
             this.lblFilter.Name = "lblFilter";
             this.lblFilter.Size = new System.Drawing.Size(89, 55);

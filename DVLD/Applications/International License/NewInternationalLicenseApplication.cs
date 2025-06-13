@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Drving_VehicleBusinessTier;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace DVLDBussiensTier.Applications
+namespace DVLD.Applications
 {
     public partial class NewInternationalLicenseApplication : Form
     {

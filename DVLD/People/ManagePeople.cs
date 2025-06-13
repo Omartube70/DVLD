@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Drving_VehicleBusinessTier;
-using DVLDBussiensTier.Global_Classes;
+using DVLD.Global_Classes;
 
-namespace DVLDBussiensTier
+namespace DVLD
 {
     public partial class ManagePeople : Form
     {

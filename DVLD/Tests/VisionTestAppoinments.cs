@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Drving_VehicleBusinessTier;
 
-namespace DVLDBussiensTier.Tests1
+namespace DVLD.Tests1
 {
     public partial class VisionTestAppoinments : Form
     {

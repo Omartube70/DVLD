@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Drving_VehicleBusinessTier;
 
-namespace DVLDBussiensTier.Detain
+namespace DVLD.Detain
 {
     public partial class ReleaseDetainedLicense : Form
     {

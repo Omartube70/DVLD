@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Drving_VehicleBusinessTier;
 
-namespace DVLDBussiensTier.Applications
+namespace DVLD.Applications
 {
     public partial class UpdateApplicationType : Form
     {

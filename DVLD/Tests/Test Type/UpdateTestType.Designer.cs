@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class UpdateTestType
     {
@@ -126,7 +126,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label6.Image = global::DVLDBussiensTier.Properties.Resources.icons8_id_32;
+            this.label6.Image = global::DVLD.Properties.Resources.icons8_id_32;
             this.label6.Location = new System.Drawing.Point(161, 96);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 49);
@@ -135,7 +135,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label4.Image = global::DVLDBussiensTier.Properties.Resources.icons8_application_321;
+            this.label4.Image = global::DVLD.Properties.Resources.icons8_application_321;
             this.label4.Location = new System.Drawing.Point(161, 220);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 49);
@@ -175,7 +175,7 @@
             // label16
             // 
             this.label16.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label16.Image = global::DVLDBussiensTier.Properties.Resources.icons8_title_32;
+            this.label16.Image = global::DVLD.Properties.Resources.icons8_title_32;
             this.label16.Location = new System.Drawing.Point(161, 159);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(55, 49);
@@ -193,7 +193,7 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label9.Image = global::DVLDBussiensTier.Properties.Resources.icons8_expensive_price_32;
+            this.label9.Image = global::DVLD.Properties.Resources.icons8_expensive_price_32;
             this.label9.Location = new System.Drawing.Point(161, 317);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 49);

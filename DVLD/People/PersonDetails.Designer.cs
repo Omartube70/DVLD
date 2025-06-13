@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class PersonDetails
     {
@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonDetails));
             this.lbll = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.ctrPersonDetails1 = new DVLDBussiensTier.ctrPersonDetails();
+            this.ctrPersonDetails1 = new DVLD.ctrPersonDetails();
             this.SuspendLayout();
             // 
             // lbll

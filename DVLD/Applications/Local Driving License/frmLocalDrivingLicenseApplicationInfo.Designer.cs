@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier.Applications.Local_Driving_License
+﻿namespace DVLD.Applications.Local_Driving_License
 {
     partial class frmLocalDrivingLicenseApplicationInfo
     {

@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Drving_VehicleBusinessTier;
-using DVLDBussiensTier.Applications;
-using DVLDBussiensTier.Detain;
-using DVLDBussiensTier.Users.Login;
+using DVLD.Applications;
+using DVLD.Detain;
+using DVLD.Users.Login;
 
-namespace DVLDBussiensTier
+namespace DVLD
 {
     public partial class MainForm : Form
     {

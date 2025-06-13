@@ -9,10 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Drving_VehicleBusinessTier;
-using DVLDBussiensTier.Global_Classes;
-using DVLDBussiensTier.Properties;
+using DVLD.Global_Classes;
+using DVLD.Properties;
 
-namespace DVLDBussiensTier
+namespace DVLD
 {
     public partial class AddEditPersonInfo : Form
     {

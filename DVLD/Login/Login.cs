@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Drving_VehicleBusinessTier;
 
-namespace DVLDBussiensTier.Users.Login
+namespace DVLD.Users.Login
 {
     public partial class Login : Form
     {
@@ -71,9 +71,9 @@ namespace DVLDBussiensTier.Users.Login
             if (User.IsActive == true)
             {
                 if(cbRemberMe.Checked)
-                    clsGlobal.SaveRemberUserToFile(txtUserName.Text.Trim() , txtPassword.Text.Trim());
+                    clsGlobal.SaveRememberUserToSettings(txtUserName.Text.Trim() , txtPassword.Text.Trim());
                 else
-                    clsGlobal.SaveRemberUserToFile("","");
+                    clsGlobal.SaveRememberUserToSettings("","");
 
 
                 clsGlobal.CurrentUser = User;

@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class MainForm
     {
@@ -81,7 +81,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::DVLDBussiensTier.Properties.Resources.Logo_Final1;
+            this.pictureBox1.BackgroundImage = global::DVLD.Properties.Resources.Logo_Final1;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 80);
@@ -100,7 +100,7 @@
             this.detainLincnsesToolStripMenuItem,
             this.manageApplicationTypesToolStripMenuItem,
             this.manageTestTypesToolStripMenuItem});
-            this.applicationsToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.sport_utility_vehicle;
+            this.applicationsToolStripMenuItem.Image = global::DVLD.Properties.Resources.sport_utility_vehicle;
             this.applicationsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.applicationsToolStripMenuItem.Name = "applicationsToolStripMenuItem";
             this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(240, 76);
@@ -117,7 +117,7 @@
             this.releaseDetainedDrivingLicenseToolStripMenuItem1,
             this.retakeTestToolStripMenuItem});
             this.drivingLicensesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 17F);
-            this.drivingLicensesToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.id;
+            this.drivingLicensesToolStripMenuItem.Image = global::DVLD.Properties.Resources.id;
             this.drivingLicensesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.drivingLicensesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.drivingLicensesToolStripMenuItem.Name = "drivingLicensesToolStripMenuItem";
@@ -130,14 +130,14 @@
             this.localLicenseToolStripMenuItem,
             this.interanlToolStripMenuItem});
             this.newDrivingToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.newDrivingToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.id1;
+            this.newDrivingToolStripMenuItem.Image = global::DVLD.Properties.Resources.id1;
             this.newDrivingToolStripMenuItem.Name = "newDrivingToolStripMenuItem";
             this.newDrivingToolStripMenuItem.Size = new System.Drawing.Size(432, 36);
             this.newDrivingToolStripMenuItem.Text = "New Driving License";
             // 
             // localLicenseToolStripMenuItem
             // 
-            this.localLicenseToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_local_32;
+            this.localLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_local_32;
             this.localLicenseToolStripMenuItem.Name = "localLicenseToolStripMenuItem";
             this.localLicenseToolStripMenuItem.Size = new System.Drawing.Size(259, 30);
             this.localLicenseToolStripMenuItem.Text = "Local License";
@@ -145,7 +145,7 @@
             // 
             // interanlToolStripMenuItem
             // 
-            this.interanlToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_international_32;
+            this.interanlToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_international_32;
             this.interanlToolStripMenuItem.Name = "interanlToolStripMenuItem";
             this.interanlToolStripMenuItem.Size = new System.Drawing.Size(259, 30);
             this.interanlToolStripMenuItem.Text = "International License";
@@ -154,7 +154,7 @@
             // renewDrivingLicenseToolStripMenuItem
             // 
             this.renewDrivingLicenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.renewDrivingLicenseToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.id1;
+            this.renewDrivingLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.id1;
             this.renewDrivingLicenseToolStripMenuItem.Name = "renewDrivingLicenseToolStripMenuItem";
             this.renewDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(432, 36);
             this.renewDrivingLicenseToolStripMenuItem.Text = "Renew Driving License";
@@ -168,7 +168,7 @@
             // releaseDetainedDrivingLicenseToolStripMenuItem
             // 
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.releaseDetainedDrivingLicenseToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_driver_license_32;
+            this.releaseDetainedDrivingLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_driver_license_32;
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Name = "releaseDetainedDrivingLicenseToolStripMenuItem";
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(432, 36);
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Text = "Repalcement for lost or damaged License";
@@ -182,7 +182,7 @@
             // releaseDetainedDrivingLicenseToolStripMenuItem1
             // 
             this.releaseDetainedDrivingLicenseToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.releaseDetainedDrivingLicenseToolStripMenuItem1.Image = global::DVLDBussiensTier.Properties.Resources.icons8_driver_license_321;
+            this.releaseDetainedDrivingLicenseToolStripMenuItem1.Image = global::DVLD.Properties.Resources.icons8_driver_license_321;
             this.releaseDetainedDrivingLicenseToolStripMenuItem1.Name = "releaseDetainedDrivingLicenseToolStripMenuItem1";
             this.releaseDetainedDrivingLicenseToolStripMenuItem1.Size = new System.Drawing.Size(432, 36);
             this.releaseDetainedDrivingLicenseToolStripMenuItem1.Text = "Release Detained Driving License";
@@ -190,7 +190,7 @@
             // 
             // retakeTestToolStripMenuItem
             // 
-            this.retakeTestToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_retake_32;
+            this.retakeTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_retake_32;
             this.retakeTestToolStripMenuItem.Name = "retakeTestToolStripMenuItem";
             this.retakeTestToolStripMenuItem.Size = new System.Drawing.Size(432, 36);
             this.retakeTestToolStripMenuItem.Text = "Retake Test";
@@ -207,7 +207,7 @@
             this.localDrivingLicenseApplicationsToolStripMenuItem,
             this.localDrivingLicenseApplicationsToolStripMenuItem1});
             this.manageApplicationsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 17F);
-            this.manageApplicationsToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_application_32;
+            this.manageApplicationsToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_application_32;
             this.manageApplicationsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.manageApplicationsToolStripMenuItem.Name = "manageApplicationsToolStripMenuItem";
             this.manageApplicationsToolStripMenuItem.Size = new System.Drawing.Size(411, 70);
@@ -215,7 +215,7 @@
             // 
             // localDrivingLicenseApplicationsToolStripMenuItem
             // 
-            this.localDrivingLicenseApplicationsToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_local_321;
+            this.localDrivingLicenseApplicationsToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_local_321;
             this.localDrivingLicenseApplicationsToolStripMenuItem.Name = "localDrivingLicenseApplicationsToolStripMenuItem";
             this.localDrivingLicenseApplicationsToolStripMenuItem.Size = new System.Drawing.Size(439, 36);
             this.localDrivingLicenseApplicationsToolStripMenuItem.Text = "Local Driving License Applications";
@@ -223,7 +223,7 @@
             // 
             // localDrivingLicenseApplicationsToolStripMenuItem1
             // 
-            this.localDrivingLicenseApplicationsToolStripMenuItem1.Image = global::DVLDBussiensTier.Properties.Resources.icons8_international_321;
+            this.localDrivingLicenseApplicationsToolStripMenuItem1.Image = global::DVLD.Properties.Resources.icons8_international_321;
             this.localDrivingLicenseApplicationsToolStripMenuItem1.Name = "localDrivingLicenseApplicationsToolStripMenuItem1";
             this.localDrivingLicenseApplicationsToolStripMenuItem1.Size = new System.Drawing.Size(439, 36);
             this.localDrivingLicenseApplicationsToolStripMenuItem1.Text = "International  License Applications";
@@ -241,7 +241,7 @@
             this.detainLicenseToolStripMenuItem,
             this.relaseDetainedLicenseToolStripMenuItem});
             this.detainLincnsesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 17F);
-            this.detainLincnsesToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_stop_and_wait_32;
+            this.detainLincnsesToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_stop_and_wait_32;
             this.detainLincnsesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.detainLincnsesToolStripMenuItem.Name = "detainLincnsesToolStripMenuItem";
             this.detainLincnsesToolStripMenuItem.Size = new System.Drawing.Size(411, 70);
@@ -249,7 +249,7 @@
             // 
             // manageDetainedLicenseToolStripMenuItem
             // 
-            this.manageDetainedLicenseToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_stop_and_wait_321;
+            this.manageDetainedLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_stop_and_wait_321;
             this.manageDetainedLicenseToolStripMenuItem.Name = "manageDetainedLicenseToolStripMenuItem";
             this.manageDetainedLicenseToolStripMenuItem.Size = new System.Drawing.Size(352, 36);
             this.manageDetainedLicenseToolStripMenuItem.Text = "Manage Detained License";
@@ -257,7 +257,7 @@
             // 
             // detainLicenseToolStripMenuItem
             // 
-            this.detainLicenseToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_hand_641;
+            this.detainLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_hand_641;
             this.detainLicenseToolStripMenuItem.Name = "detainLicenseToolStripMenuItem";
             this.detainLicenseToolStripMenuItem.Size = new System.Drawing.Size(352, 36);
             this.detainLicenseToolStripMenuItem.Text = "Detain License";
@@ -265,7 +265,7 @@
             // 
             // relaseDetainedLicenseToolStripMenuItem
             // 
-            this.relaseDetainedLicenseToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.dsssssssss1;
+            this.relaseDetainedLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.dsssssssss1;
             this.relaseDetainedLicenseToolStripMenuItem.Name = "relaseDetainedLicenseToolStripMenuItem";
             this.relaseDetainedLicenseToolStripMenuItem.Size = new System.Drawing.Size(352, 36);
             this.relaseDetainedLicenseToolStripMenuItem.Text = "Relase Detained License";
@@ -274,7 +274,7 @@
             // manageApplicationTypesToolStripMenuItem
             // 
             this.manageApplicationTypesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 17F);
-            this.manageApplicationTypesToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.view_details1;
+            this.manageApplicationTypesToolStripMenuItem.Image = global::DVLD.Properties.Resources.view_details1;
             this.manageApplicationTypesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.manageApplicationTypesToolStripMenuItem.Name = "manageApplicationTypesToolStripMenuItem";
             this.manageApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(411, 70);
@@ -284,7 +284,7 @@
             // manageTestTypesToolStripMenuItem
             // 
             this.manageTestTypesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 17F);
-            this.manageTestTypesToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.icons8_test_results_32;
+            this.manageTestTypesToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_test_results_32;
             this.manageTestTypesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.manageTestTypesToolStripMenuItem.Name = "manageTestTypesToolStripMenuItem";
             this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(411, 70);
@@ -293,7 +293,7 @@
             // 
             // peopleToolStripMenuItem
             // 
-            this.peopleToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.users_config__1_;
+            this.peopleToolStripMenuItem.Image = global::DVLD.Properties.Resources.users_config__1_;
             this.peopleToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
             this.peopleToolStripMenuItem.Size = new System.Drawing.Size(182, 76);
@@ -302,7 +302,7 @@
             // 
             // driversToolStripMenuItem
             // 
-            this.driversToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.driver__1_;
+            this.driversToolStripMenuItem.Image = global::DVLD.Properties.Resources.driver__1_;
             this.driversToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.driversToolStripMenuItem.Name = "driversToolStripMenuItem";
             this.driversToolStripMenuItem.Size = new System.Drawing.Size(175, 76);
@@ -311,7 +311,7 @@
             // 
             // usersToolStripMenuItem
             // 
-            this.usersToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.user__1_;
+            this.usersToolStripMenuItem.Image = global::DVLD.Properties.Resources.user__1_;
             this.usersToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
             this.usersToolStripMenuItem.Size = new System.Drawing.Size(157, 76);
@@ -325,7 +325,7 @@
             this.changePasswordToolStripMenuItem,
             this.toolStripMenuItem1,
             this.singOutToolStripMenuItem});
-            this.acountSettingsToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.account_settings__1_;
+            this.acountSettingsToolStripMenuItem.Image = global::DVLD.Properties.Resources.account_settings__1_;
             this.acountSettingsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.acountSettingsToolStripMenuItem.Name = "acountSettingsToolStripMenuItem";
             this.acountSettingsToolStripMenuItem.Size = new System.Drawing.Size(279, 76);
@@ -334,7 +334,7 @@
             // currentUserInfoToolStripMenuItem
             // 
             this.currentUserInfoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.currentUserInfoToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.personal_photo;
+            this.currentUserInfoToolStripMenuItem.Image = global::DVLD.Properties.Resources.personal_photo;
             this.currentUserInfoToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.currentUserInfoToolStripMenuItem.Name = "currentUserInfoToolStripMenuItem";
             this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(241, 32);
@@ -344,7 +344,7 @@
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.changePasswordToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.password1;
+            this.changePasswordToolStripMenuItem.Image = global::DVLD.Properties.Resources.password1;
             this.changePasswordToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
             this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(241, 32);
@@ -359,7 +359,7 @@
             // singOutToolStripMenuItem
             // 
             this.singOutToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.singOutToolStripMenuItem.Image = global::DVLDBussiensTier.Properties.Resources.Screenshot_102;
+            this.singOutToolStripMenuItem.Image = global::DVLD.Properties.Resources.Screenshot_102;
             this.singOutToolStripMenuItem.Name = "singOutToolStripMenuItem";
             this.singOutToolStripMenuItem.Size = new System.Drawing.Size(241, 32);
             this.singOutToolStripMenuItem.Text = "Sing Out";

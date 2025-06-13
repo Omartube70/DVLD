@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier.Applications
+﻿namespace DVLD.Applications
 {
     partial class ctrFilterLicneseAndShowDetails
     {
@@ -32,7 +32,7 @@
             this.lblFilter = new System.Windows.Forms.Label();
             this.txtFilterBy = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.ctrDriverLicenseInfo1 = new DVLDBussiensTier.ctrDriverLicenseInfo();
+            this.ctrDriverLicenseInfo1 = new DVLD.ctrDriverLicenseInfo();
             this.gbFilter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             // lblFilter
             // 
             this.lblFilter.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblFilter.Image = global::DVLDBussiensTier.Properties.Resources.id21;
+            this.lblFilter.Image = global::DVLD.Properties.Resources.id21;
             this.lblFilter.Location = new System.Drawing.Point(586, 23);
             this.lblFilter.Name = "lblFilter";
             this.lblFilter.Size = new System.Drawing.Size(89, 55);

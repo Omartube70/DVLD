@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class LicenseInfo
     {
@@ -32,7 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.ctrDriverLicenseInfo1 = new DVLDBussiensTier.ctrDriverLicenseInfo();
+            this.ctrDriverLicenseInfo1 = new DVLD.ctrDriverLicenseInfo();
             this.SuspendLayout();
             // 
             // label2
@@ -49,7 +49,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Image = global::DVLDBussiensTier.Properties.Resources.images__2_3;
+            this.label1.Image = global::DVLD.Properties.Resources.images__2_3;
             this.label1.Location = new System.Drawing.Point(325, -44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(483, 290);

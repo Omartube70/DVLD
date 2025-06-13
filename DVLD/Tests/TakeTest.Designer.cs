@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier.Tests1
+﻿namespace DVLD.Tests1
 {
     partial class TakeTest
     {
@@ -268,7 +268,7 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label9.Image = global::DVLDBussiensTier.Properties.Resources.icons8_test_results_3214;
+            this.label9.Image = global::DVLD.Properties.Resources.icons8_test_results_3214;
             this.label9.Location = new System.Drawing.Point(155, 753);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 33);
@@ -277,7 +277,7 @@
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label12.Image = global::DVLDBussiensTier.Properties.Resources.icons8_vision_323;
+            this.label12.Image = global::DVLD.Properties.Resources.icons8_vision_323;
             this.label12.Location = new System.Drawing.Point(140, 678);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(70, 49);
@@ -286,7 +286,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label5.Image = global::DVLDBussiensTier.Properties.Resources.icons8_amphibious_vehicle_322;
+            this.label5.Image = global::DVLD.Properties.Resources.icons8_amphibious_vehicle_322;
             this.label5.Location = new System.Drawing.Point(220, 432);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 33);
@@ -295,7 +295,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label3.Image = global::DVLDBussiensTier.Properties.Resources.user__2_3;
+            this.label3.Image = global::DVLD.Properties.Resources.user__2_3;
             this.label3.Location = new System.Drawing.Point(220, 380);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 33);
@@ -304,7 +304,7 @@
             // lblAddNewApplication
             // 
             this.lblAddNewApplication.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblAddNewApplication.Image = global::DVLDBussiensTier.Properties.Resources.field_number1;
+            this.lblAddNewApplication.Image = global::DVLD.Properties.Resources.field_number1;
             this.lblAddNewApplication.Location = new System.Drawing.Point(220, 275);
             this.lblAddNewApplication.Name = "lblAddNewApplication";
             this.lblAddNewApplication.Size = new System.Drawing.Size(35, 33);
@@ -313,7 +313,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label6.Image = global::DVLDBussiensTier.Properties.Resources.icons8_driver_license_323;
+            this.label6.Image = global::DVLD.Properties.Resources.icons8_driver_license_323;
             this.label6.Location = new System.Drawing.Point(220, 325);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 33);
@@ -322,7 +322,7 @@
             // label25
             // 
             this.label25.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label25.Image = global::DVLDBussiensTier.Properties.Resources.date1;
+            this.label25.Image = global::DVLD.Properties.Resources.date1;
             this.label25.Location = new System.Drawing.Point(220, 492);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(35, 33);
@@ -331,7 +331,7 @@
             // label16
             // 
             this.label16.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label16.Image = global::DVLDBussiensTier.Properties.Resources.icons8_expensive_price_3211;
+            this.label16.Image = global::DVLD.Properties.Resources.icons8_expensive_price_3211;
             this.label16.Location = new System.Drawing.Point(220, 549);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(35, 33);
@@ -341,7 +341,7 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pictureBox1.Image = global::DVLDBussiensTier.Properties.Resources.images__1_;
+            this.pictureBox1.Image = global::DVLD.Properties.Resources.images__1_;
             this.pictureBox1.Location = new System.Drawing.Point(270, -11);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(241, 180);
@@ -419,7 +419,7 @@
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label11.Image = global::DVLDBussiensTier.Properties.Resources.field_number1;
+            this.label11.Image = global::DVLD.Properties.Resources.field_number1;
             this.label11.Location = new System.Drawing.Point(220, 605);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(35, 33);

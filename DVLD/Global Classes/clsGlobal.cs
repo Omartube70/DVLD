@@ -5,35 +5,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Drving_VehicleBusinessTier;
+using DVLD.Properties;
 
-namespace DVLDBussiensTier
+namespace DVLD
 {
-    public class clsGlobal
+    static public class clsGlobal
     {
        static public clsUser CurrentUser { get; set; }
 
-       static public void SaveRemberUserToFile(string UserName , string Password)
+        static public void SaveRememberUserToSettings(string userName, string password)
         {
-            if(!string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(Password)) 
-                File.WriteAllText("RemberUser.txt", UserName + "\n" + Password);
-
+            if (!string.IsNullOrWhiteSpace(userName) && !string.IsNullOrWhiteSpace(password))
+            {
+                Properties.Settings.Default.Username = userName;
+                Properties.Settings.Default.Password = SimpleEncryptor.Encrypt(password);
+                Properties.Settings.Default.Save();
+            }
             else
-                File.WriteAllText("RemberUser.txt","");
+            {
+                Properties.Settings.Default.Username = "";
+                Properties.Settings.Default.Password = "";
+                Properties.Settings.Default.Save();
+            }
         }
 
-       static public bool GetStoredCredential(ref string UserName,ref string Password)
+        static public bool GetStoredCredential(ref string userName, ref string password)
         {
-            if (File.Exists("RemberUser.txt"))
+            if (!string.IsNullOrWhiteSpace(Properties.Settings.Default.Username) &&
+                !string.IsNullOrWhiteSpace(Properties.Settings.Default.Password))
             {
-                string[] lines = File.ReadAllLines("RemberUser.txt");
-
-                if (lines.Length >= 1)
-                {
-                    UserName = lines[0];
-                    Password = lines[1];
-                    return true;
-                }
+                userName = Properties.Settings.Default.Username;
+                password = SimpleEncryptor.Decrypt(Properties.Settings.Default.Password);
+                return true;
             }
+
             return false;
         }
 

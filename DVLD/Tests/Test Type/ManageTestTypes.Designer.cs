@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class ManageTestTypes
     {
@@ -125,7 +125,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Image = global::DVLDBussiensTier.Properties.Resources._4838856;
+            this.label1.Image = global::DVLD.Properties.Resources._4838856;
             this.label1.Location = new System.Drawing.Point(230, -9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(483, 290);

@@ -1,4 +1,4 @@
-﻿namespace DVLDBussiensTier
+﻿namespace DVLD
 {
     partial class ChangePassword
     {
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePassword));
-            this.ctrUserDetails1 = new DVLDBussiensTier.ctrUserDetails();
+            this.ctrUserDetails1 = new DVLD.ctrUserDetails();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -67,7 +67,7 @@
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label10.Image = global::DVLDBussiensTier.Properties.Resources.password4;
+            this.label10.Image = global::DVLD.Properties.Resources.password4;
             this.label10.Location = new System.Drawing.Point(266, 702);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(70, 49);
@@ -97,7 +97,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label4.Image = global::DVLDBussiensTier.Properties.Resources.password2;
+            this.label4.Image = global::DVLD.Properties.Resources.password2;
             this.label4.Location = new System.Drawing.Point(266, 635);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 49);
@@ -127,7 +127,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label1.Image = global::DVLDBussiensTier.Properties.Resources.password2;
+            this.label1.Image = global::DVLD.Properties.Resources.password2;
             this.label1.Location = new System.Drawing.Point(266, 574);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 49);

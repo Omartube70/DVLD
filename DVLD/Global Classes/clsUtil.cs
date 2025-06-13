@@ -6,12 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
-namespace DVLDBussiensTier.Global_Classes
+
+namespace DVLD.Global_Classes
 {
     static public class clsUtil
     {
-       static public string GetImageExtinon(string ImagePath)
+        static public string GetImageExtinon(string ImagePath)
         {
             return new FileInfo(ImagePath).Extension;
         }
@@ -35,3 +37,4 @@ namespace DVLDBussiensTier.Global_Classes
         }
     }
 }
+
