@@ -77,3 +77,7 @@ $RECYCLE.BIN/
 # Local environment settings
 .env
 .vs/
+# Executables and debug symbols
+*.exe
+*.dll
+*.pdb
