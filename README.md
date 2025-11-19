@@ -4,7 +4,7 @@
 
 تم بناء النظام بالاعتماد على معمارية الطبقات الثلاث (3-Tier Architecture)، مما يجعله قوياً، منظماً، وسهل الصيانة والتطوير مستقبلاً.
 
-![عرض توضيحي للنظام](https://raw.githubusercontent.com/Omartube70/DVLD/main/My%20Video-1.gif)
+![عرض توضيحي للنظام](https://github.com/Omartube70/DVLD/blob/master/DVLD.gif)
 
 ---
 
