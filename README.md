@@ -1,219 +1,235 @@
-# 🚦 DVLD - Driving & Vehicle License Department System
+# 🚦 نظام إدارة رخص القيادة والمركبات (DVLD)
 
-<div align="center">
+<div align="center" dir="rtl">
 
-![DVLD System Demo](https://github.com/Omartube70/DVLD/blob/master/DVLD.gif)
+![عرض توضيحي للنظام](https://github.com/Omartube70/DVLD/blob/master/DVLD.gif)
 
 [![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.8-512BD4?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/)
 [![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)](https://docs.microsoft.com/en-us/dotnet/csharp/)
 [![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)](https://www.microsoft.com/en-us/sql-server)
 [![Windows Forms](https://img.shields.io/badge/Windows%20Forms-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://docs.microsoft.com/en-us/dotnet/desktop/winforms/)
 
-**A comprehensive desktop application for managing driver's licenses and vehicle registrations**
+**نظام مكتبي شامل لإدارة رخص القيادة وتسجيل المركبات**
 
-[Features](#-features) • [Architecture](#️-architecture) • [Installation](#-installation) • [Tech Stack](#-tech-stack) • [Screenshots](#-screenshots)
+[المميزات](#-المميزات) • [المعمارية](#️-المعمارية) • [التثبيت](#-التثبيت) • [التقنيات](#-التقنيات-المستخدمة) • [لقطات الشاشة](#-لقطات-الشاشة)
 
 </div>
 
 ---
 
-## 📋 Table of Contents
+## 📋 جدول المحتويات
 
-- [Overview](#-overview)
-- [Features](#-features)
-- [Architecture](#️-architecture)
-- [Tech Stack](#-tech-stack)
-- [Installation](#-installation)
-- [Usage](#-usage)
-- [Database Schema](#-database-schema)
-- [Screenshots](#-screenshots)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Contact](#-contact)
-
----
-
-## 🌟 Overview
-
-**DVLD (Driving & Vehicle License Department)** is a robust desktop application built with C# and .NET Framework that automates and manages all operations related to issuing and renewing driver's licenses in a virtual traffic department.
-
-The system is built on **3-Tier Architecture**, making it powerful, organized, and easy to maintain and develop in the future.
-
-### 🎯 Key Highlights
-
-- ✅ **Secure Authentication** with role-based access control
-- ✅ **Complete License Management** (Local & International)
-- ✅ **Multi-Test System** (Vision, Written, Street Tests)
-- ✅ **Application Tracking** for all license types
-- ✅ **User-Friendly Interface** with intuitive navigation
-- ✅ **Scalable Architecture** following industry best practices
+- [نظرة عامة](#-نظرة-عامة)
+- [المميزات](#-المميزات)
+- [المعمارية](#️-المعمارية)
+- [التقنيات المستخدمة](#-التقنيات-المستخدمة)
+- [التثبيت](#-التثبيت)
+- [الاستخدام](#-الاستخدام)
+- [قاعدة البيانات](#️-قاعدة-البيانات)
+- [لقطات الشاشة](#-لقطات-الشاشة)
+- [المساهمة](#-المساهمة)
+- [الترخيص](#-الترخيص)
+- [التواصل](#-التواصل)
 
 ---
 
-## 🚀 Features
+## 🌟 نظرة عامة
+
+**نظام DVLD (إدارة رخص القيادة والمركبات)** هو تطبيق سطح مكتب قوي مبني باستخدام C# و .NET Framework يقوم بأتمتة وإدارة جميع العمليات المتعلقة بإصدار وتجديد رخص القيادة في إدارة مرور افتراضية.
+
+تم بناء النظام على أساس **معمارية الطبقات الثلاث**، مما يجعله قوياً ومنظماً وسهل الصيانة والتطوير في المستقبل.
+
+### 🎯 أبرز الميزات
+
+- ✅ **نظام دخول آمن** مع التحكم في الصلاحيات حسب الأدوار
+- ✅ **إدارة شاملة للرخص** (محلية ودولية)
+- ✅ **نظام اختبارات متعدد** (اختبار النظر، النظري، العملي)
+- ✅ **تتبع الطلبات** لجميع أنواع الرخص
+- ✅ **واجهة سهلة الاستخدام** مع تنقل بديهي
+- ✅ **معمارية قابلة للتوسع** تتبع أفضل الممارسات
+
+---
+
+## 🚀 المميزات
+
+<div dir="rtl">
 
 <table>
   <tr>
     <td width="50%">
       
-### 👥 User Management
-- Secure login system with password hashing
-- Role-based access control
-- User activity tracking
-- Password change functionality
-- Account activation/deactivation
+### 👥 إدارة المستخدمين
+- نظام تسجيل دخول آمن مع تشفير كلمات المرور
+- التحكم في الصلاحيات حسب الأدوار
+- تتبع نشاط المستخدمين
+- إمكانية تغيير كلمة المرور
+- تفعيل/إلغاء تفعيل الحسابات
 
     </td>
     <td width="50%">
       
-### 👤 People Management
-- Add, edit, and delete person records
-- Advanced search capabilities
-- Document upload support
-- Nationality tracking
-- Complete profile management
-
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      
-### 📝 Application Processing
-- Local driving license applications
-- International license applications
-- License renewal requests
-- Replacement for lost/damaged licenses
-- Application status tracking
-
-    </td>
-    <td width="50%">
-      
-### 🎓 Test Management
-- Vision test scheduling
-- Written test scheduling
-- Street test scheduling
-- Test result recording
-- Retry test management
-- Test appointment tracking
+### 👤 إدارة الأشخاص
+- إضافة وتعديل وحذف سجلات الأشخاص
+- إمكانيات بحث متقدمة
+- دعم رفع المستندات
+- تتبع الجنسيات
+- إدارة كاملة للملفات الشخصية
 
     </td>
   </tr>
   <tr>
     <td width="50%">
       
-### 🪪 License Operations
-- Issue new licenses
-- Renew expired licenses
-- Replace lost/damaged licenses
-- Detain licenses
-- Release detained licenses
-- License history tracking
+### 📝 معالجة الطلبات
+- طلبات رخص القيادة المحلية
+- طلبات الرخص الدولية
+- طلبات تجديد الرخص
+- استبدال الرخص المفقودة/التالفة
+- تتبع حالة الطلبات
 
     </td>
     <td width="50%">
       
-### 📊 Reporting & Analytics
-- Application reports
-- License statistics
-- Test results analysis
-- User activity logs
-- System audit trails
+### 🎓 إدارة الاختبارات
+- جدولة اختبار النظر
+- جدولة الاختبار النظري
+- جدولة الاختبار العملي
+- تسجيل نتائج الاختبارات
+- إدارة إعادة الاختبارات
+- تتبع مواعيد الاختبارات
+
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      
+### 🪪 عمليات الرخص
+- إصدار رخص جديدة
+- تجديد الرخص المنتهية
+- استبدال الرخص المفقودة/التالفة
+- حجز الرخص
+- إطلاق الرخص المحجوزة
+- تتبع سجل الرخص
+
+    </td>
+    <td width="50%">
+      
+### 📊 التقارير والتحليلات
+- تقارير الطلبات
+- إحصائيات الرخص
+- تحليل نتائج الاختبارات
+- سجلات نشاط المستخدمين
+- مسارات تدقيق النظام
 
     </td>
   </tr>
 </table>
 
+</div>
+
 ---
 
-## 🏗️ Architecture
+## 🏗️ المعمارية
 
-The project follows the **3-Tier Architecture** pattern for separation of concerns and code organization:
+<div dir="rtl">
 
-### 📦 Layer Breakdown
+يتبع المشروع نمط **معمارية الطبقات الثلاث** لفصل الاهتمامات وتنظيم الكود:
 
-<table>
+### 📦 تفصيل الطبقات
+
+<table dir="rtl">
   <tr>
-    <th width="20%">Layer</th>
-    <th width="30%">Responsibility</th>
-    <th width="50%">Components</th>
+    <th width="20%">الطبقة</th>
+    <th width="30%">المسؤولية</th>
+    <th width="50%">المكونات</th>
   </tr>
   <tr>
-    <td><strong>🖥️ Presentation</strong><br/><code>DVLD</code></td>
-    <td>User Interface & Interaction</td>
+    <td><strong>🖥️ طبقة العرض</strong><br/><code>DVLD</code></td>
+    <td>واجهة المستخدم والتفاعل</td>
     <td>
       • Windows Forms<br/>
-      • User Controls<br/>
-      • Input Validation<br/>
-      • Data Binding
+      • عناصر التحكم<br/>
+      • التحقق من المدخلات<br/>
+      • ربط البيانات
     </td>
   </tr>
   <tr>
-    <td><strong>⚙️ Business Logic</strong><br/><code>DVLD_Business</code></td>
-    <td>Business Rules & Logic</td>
+    <td><strong>⚙️ طبقة منطق الأعمال</strong><br/><code>DVLD_Business</code></td>
+    <td>قواعد ومنطق الأعمال</td>
     <td>
-      • Business Objects<br/>
-      • Validation Rules<br/>
-      • Data Processing<br/>
-      • Workflow Management
+      • كائنات الأعمال<br/>
+      • قواعد التحقق<br/>
+      • معالجة البيانات<br/>
+      • إدارة سير العمل
     </td>
   </tr>
   <tr>
-    <td><strong>💾 Data Access</strong><br/><code>DVLD_DataAccess</code></td>
-    <td>Database Operations</td>
+    <td><strong>💾 طبقة الوصول للبيانات</strong><br/><code>DVLD_DataAccess</code></td>
+    <td>عمليات قاعدة البيانات</td>
     <td>
       • ADO.NET<br/>
-      • SQL Queries<br/>
-      • Stored Procedures<br/>
-      • Connection Management
+      • استعلامات SQL<br/>
+      • الإجراءات المخزنة<br/>
+      • إدارة الاتصالات
     </td>
   </tr>
 </table>
 
+</div>
+
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ التقنيات المستخدمة
 
 <div align="center">
 
-| Category | Technology |
-|----------|-----------|
-| **Language** | ![C#](https://img.shields.io/badge/C%23-239120?style=flat&logo=c-sharp&logoColor=white) |
-| **Framework** | ![.NET](https://img.shields.io/badge/.NET%20Framework%204.8-512BD4?style=flat&logo=.net&logoColor=white) |
-| **UI** | ![Windows Forms](https://img.shields.io/badge/Windows%20Forms-0078D6?style=flat&logo=windows&logoColor=white) |
-| **Database** | ![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=flat&logo=microsoft-sql-server&logoColor=white) |
-| **Data Access** | ![ADO.NET](https://img.shields.io/badge/ADO.NET-512BD4?style=flat&logo=.net&logoColor=white) |
-| **Security** | ![BCrypt](https://img.shields.io/badge/BCrypt-323330?style=flat&logo=lock&logoColor=white) |
+| الفئة | التقنية |
+|-------|---------|
+| **لغة البرمجة** | ![C#](https://img.shields.io/badge/C%23-239120?style=flat&logo=c-sharp&logoColor=white) |
+| **إطار العمل** | ![.NET](https://img.shields.io/badge/.NET%20Framework%204.8-512BD4?style=flat&logo=.net&logoColor=white) |
+| **واجهة المستخدم** | ![Windows Forms](https://img.shields.io/badge/Windows%20Forms-0078D6?style=flat&logo=windows&logoColor=white) |
+| **قاعدة البيانات** | ![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=flat&logo=microsoft-sql-server&logoColor=white) |
+| **الوصول للبيانات** | ![ADO.NET](https://img.shields.io/badge/ADO.NET-512BD4?style=flat&logo=.net&logoColor=white) |
+| **الأمان** | ![BCrypt](https://img.shields.io/badge/BCrypt-323330?style=flat&logo=lock&logoColor=white) |
 
 </div>
 
 ---
 
-## 💻 Installation
+## 💻 التثبيت
 
-### 📋 Prerequisites
+<div dir="rtl">
 
-Before you begin, ensure you have the following installed:
+### 📋 المتطلبات الأساسية
 
-- ![Visual Studio](https://img.shields.io/badge/Visual%20Studio%202019+-5C2D91?style=flat&logo=visual-studio&logoColor=white) or later
-- ![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=flat&logo=microsoft-sql-server&logoColor=white) (2016 or later)
+قبل البدء، تأكد من تثبيت ما يلي:
+
+- ![Visual Studio](https://img.shields.io/badge/Visual%20Studio%202019+-5C2D91?style=flat&logo=visual-studio&logoColor=white) أو أحدث
+- ![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=flat&logo=microsoft-sql-server&logoColor=white) (2016 أو أحدث)
 - ![.NET Framework](https://img.shields.io/badge/.NET%20Framework%204.8-512BD4?style=flat&logo=.net&logoColor=white)
 
-### 🔧 Setup Steps
+### 🔧 خطوات التثبيت
 
-#### 1️⃣ Clone the Repository
+#### 1️⃣ استنساخ المستودع
+
+</div>
 ```bash
 git clone https://github.com/Omartube70/DVLD.git
 cd DVLD
 ```
 
-#### 2️⃣ Database Setup
+<div dir="rtl">
 
-1. Open **SQL Server Management Studio (SSMS)**
-2. Create a new database named `DVLD`
-3. Locate the database script: `Database/DVLD_Database.sql`
-4. Execute the script to create tables, stored procedures, and seed data
+#### 2️⃣ إعداد قاعدة البيانات
+
+1. افتح **SQL Server Management Studio (SSMS)**
+2. أنشئ قاعدة بيانات جديدة باسم `DVLD`
+3. حدد موقع ملف السكريبت: `Database/DVLD_Database.sql`
+4. قم بتنفيذ السكريبت لإنشاء الجداول والإجراءات المخزنة وبيانات البداية
+
+</div>
 ```sql
--- Execute in SSMS
+-- نفذ في SSMS
 USE master;
 GO
 
@@ -223,220 +239,252 @@ GO
 USE DVLD;
 GO
 
--- Run the DVLD_Database.sql script here
+-- قم بتشغيل سكريبت DVLD_Database.sql هنا
 ```
 
-#### 3️⃣ Configure Connection String
+<div dir="rtl">
 
-1. Open the solution file `DVLD.sln` in Visual Studio
-2. Navigate to the **DVLD_DataAccess** project
-3. Open `clsDataAccessSettings.cs`
-4. Update the connection string:
+#### 3️⃣ تكوين سلسلة الاتصال
+
+1. افتح ملف الحل `DVLD.sln` في Visual Studio
+2. انتقل إلى مشروع **DVLD_DataAccess**
+3. افتح ملف `clsDataAccessSettings.cs`
+4. قم بتحديث سلسلة الاتصال:
+
+</div>
 ```csharp
 public static class clsDataAccessSettings
 {
-    // Update this with your SQL Server instance name
+    // قم بتحديث هذا باسم خادم SQL Server الخاص بك
     public static string ConnectionString = 
         "Server=YOUR_SERVER_NAME;Database=DVLD;Integrated Security=True;";
 }
 ```
 
-**Common Server Names:**
-- `.` (local default instance)
+<div dir="rtl">
+
+**أسماء الخوادم الشائعة:**
+- `.` (المثيل الافتراضي المحلي)
 - `localhost`
 - `(localdb)\MSSQLLocalDB` (LocalDB)
 - `YOUR_COMPUTER_NAME\SQLEXPRESS`
 
-#### 4️⃣ Build and Run
+#### 4️⃣ البناء والتشغيل
 
-1. Build the solution: `Ctrl + Shift + B`
-2. Set `DVLD` project as startup project
-3. Run the application: `F5`
+1. قم ببناء الحل: `Ctrl + Shift + B`
+2. اجعل مشروع `DVLD` مشروع البدء
+3. قم بتشغيل التطبيق: `F5`
 
-### 🔐 Default Login Credentials
+### 🔐 بيانات تسجيل الدخول الافتراضية
+
+</div>
 ```
-Username: Admin
-Password: 1234
-```
-
-> ⚠️ **Security Note:** Change the default password after first login!
-
----
-
-## 📖 Usage
-
-### 🚪 Getting Started
-
-1. **Login** with your credentials
-2. Navigate through the **main menu** to access different modules
-3. Use the **search** functionality to find existing records
-4. Create **new applications** for license processing
-5. Track **application status** through the workflow
-
-### 📊 Common Workflows
-
-<details>
-<summary><b>🆕 New License Application</b></summary>
-
-1. Navigate to **Applications** → **New Driving License** → **Local License**
-2. Select or create a **person record**
-3. Choose **license class**
-4. Pay **application fees**
-5. Schedule **vision test**
-6. Complete all required **tests**
-7. **Issue license** upon passing all tests
-
-</details>
-
-<details>
-<summary><b>🔄 Renew Existing License</b></summary>
-
-1. Navigate to **Applications** → **Renew Driving License**
-2. Search for **existing license**
-3. Verify **license details**
-4. Pay **renewal fees**
-5. **Issue renewed license**
-
-</details>
-
-<details>
-<summary><b>🌍 International License</b></summary>
-
-1. Navigate to **Applications** → **New International License**
-2. Select **active local license**
-3. Pay **application fees**
-4. **Issue international license**
-
-</details>
-
----
-
-## 🗄️ Database Schema
-
-<details>
-<summary><b>📊 Main Tables</b></summary>
-
-### Core Tables
-
-- **People** - Personal information
-- **Users** - System users and credentials
-- **Applications** - Base application data
-- **LocalDrivingLicenseApplications** - Local license applications
-- **InternationalLicenses** - International license records
-- **Licenses** - Issued licenses
-- **Drivers** - Driver information
-- **Tests** - Test records
-- **TestAppointments** - Test scheduling
-- **DetainedLicenses** - Detained license tracking
-
-### Lookup Tables
-
-- **Countries** - Country master data
-- **ApplicationTypes** - Application type definitions
-- **TestTypes** - Test type definitions
-- **LicenseClasses** - License class definitions
-
-</details>
-
----
-
-## 📸 Screenshots
-
-<details open>
-<summary><b>🖼️ View Application Screenshots</b></summary>
-
-### Login Screen
-*Add your screenshot here*
-
-### Main Dashboard
-*Add your screenshot here*
-
-### People Management
-*Add your screenshot here*
-
-### License Application
-*Add your screenshot here*
-
-### Test Scheduling
-*Add your screenshot here*
-
-</details>
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-### 🌟 Ways to Contribute
-
-- 🐛 Report bugs
-- 💡 Suggest new features
-- 📝 Improve documentation
-- 🔧 Submit pull requests
-
-### 📝 Contribution Guidelines
-
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/AmazingFeature`)
-3. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
-4. **Push** to the branch (`git push origin feature/AmazingFeature`)
-5. **Open** a Pull Request
-
-### 🐛 Reporting Issues
-
-When reporting issues, please include:
-
-- Clear description of the problem
-- Steps to reproduce
-- Expected vs actual behavior
-- Screenshots (if applicable)
-- Environment details (OS, .NET version, SQL Server version)
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-```
-MIT License
-
-Copyright (c) 2024 Omar
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+اسم المستخدم: Admin
+كلمة المرور: 1234
 ```
 
----
+<div dir="rtl">
 
-## 📧 Contact
-
-<div align="center">
-
-**Omar Mohamed**
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Omartube70)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:your.email@example.com)
-
-**Project Link:** [https://github.com/Omartube70/DVLD](https://github.com/Omartube70/DVLD)
+> ⚠️ **ملاحظة أمنية:** قم بتغيير كلمة المرور الافتراضية بعد أول تسجيل دخول!
 
 </div>
 
 ---
 
+## 📖 الاستخدام
+
+<div dir="rtl">
+
+### 🚪 البدء
+
+1. **تسجيل الدخول** باستخدام بيانات الاعتماد الخاصة بك
+2. التنقل عبر **القائمة الرئيسية** للوصول إلى الوحدات المختلفة
+3. استخدم وظيفة **البحث** للعثور على السجلات الموجودة
+4. إنشاء **طلبات جديدة** لمعالجة الرخص
+5. تتبع **حالة الطلب** عبر سير العمل
+
+### 📊 سير العمل الشائع
+
+<details>
+<summary><b>🆕 طلب رخصة جديدة</b></summary>
+
+1. انتقل إلى **الطلبات** ← **رخصة قيادة جديدة** ← **رخصة محلية**
+2. حدد أو أنشئ **سجل شخص**
+3. اختر **فئة الرخصة**
+4. ادفع **رسوم الطلب**
+5. حدد موعد **اختبار النظر**
+6. أكمل جميع **الاختبارات** المطلوبة
+7. **إصدار الرخصة** عند اجتياز جميع الاختبارات
+
+</details>
+
+<details>
+<summary><b>🔄 تجديد رخصة موجودة</b></summary>
+
+1. انتقل إلى **الطلبات** ← **تجديد رخصة القيادة**
+2. ابحث عن **الرخصة الموجودة**
+3. تحقق من **تفاصيل الرخصة**
+4. ادفع **رسوم التجديد**
+5. **إصدار الرخصة المجددة**
+
+</details>
+
+<details>
+<summary><b>🌍 رخصة دولية</b></summary>
+
+1. انتقل إلى **الطلبات** ← **رخصة دولية جديدة**
+2. حدد **رخصة محلية نشطة**
+3. ادفع **رسوم الطلب**
+4. **إصدار الرخصة الدولية**
+
+</details>
+
+</div>
+
+---
+
+## 🗄️ قاعدة البيانات
+
+<div dir="rtl">
+
+<details>
+<summary><b>📊 الجداول الرئيسية</b></summary>
+
+### الجداول الأساسية
+
+- **People** - المعلومات الشخصية
+- **Users** - مستخدمو النظام وبيانات الاعتماد
+- **Applications** - بيانات الطلبات الأساسية
+- **LocalDrivingLicenseApplications** - طلبات الرخص المحلية
+- **InternationalLicenses** - سجلات الرخص الدولية
+- **Licenses** - الرخص الصادرة
+- **Drivers** - معلومات السائقين
+- **Tests** - سجلات الاختبارات
+- **TestAppointments** - جدولة الاختبارات
+- **DetainedLicenses** - تتبع الرخص المحجوزة
+
+### جداول البحث
+
+- **Countries** - البيانات الرئيسية للدول
+- **ApplicationTypes** - تعريفات أنواع الطلبات
+- **TestTypes** - تعريفات أنواع الاختبارات
+- **LicenseClasses** - تعريفات فئات الرخص
+
+</details>
+
+</div>
+
+---
+
+## 📸 لقطات الشاشة
+
+<div dir="rtl">
+
+<details open>
+<summary><b>🖼️ عرض لقطات شاشة التطبيق</b></summary>
+
+### شاشة تسجيل الدخول
+*أضف لقطة الشاشة هنا*
+
+### لوحة التحكم الرئيسية
+*أضف لقطة الشاشة هنا*
+
+### إدارة الأشخاص
+*أضف لقطة الشاشة هنا*
+
+### طلب الرخصة
+*أضف لقطة الشاشة هنا*
+
+### جدولة الاختبارات
+*أضف لقطة الشاشة هنا*
+
+</details>
+
+</div>
+
+---
+
+## 🤝 المساهمة
+
+<div dir="rtl">
+
+المساهمات مرحب بها! إليك كيف يمكنك المساعدة:
+
+### 🌟 طرق المساهمة
+
+- 🐛 الإبلاغ عن الأخطاء
+- 💡 اقتراح ميزات جديدة
+- 📝 تحسين الوثائق
+- 🔧 إرسال طلبات السحب
+
+### 📝 إرشادات المساهمة
+
+1. **انسخ** المستودع (Fork)
+2. **أنشئ** فرع ميزة (`git checkout -b feature/AmazingFeature`)
+3. **أرسل** تغييراتك (`git commit -m 'Add some AmazingFeature'`)
+4. **ادفع** إلى الفرع (`git push origin feature/AmazingFeature`)
+5. **افتح** طلب سحب (Pull Request)
+
+### 🐛 الإبلاغ عن المشاكل
+
+عند الإبلاغ عن المشاكل، يرجى تضمين:
+
+- وصف واضح للمشكلة
+- خطوات إعادة الإنتاج
+- السلوك المتوقع مقابل الفعلي
+- لقطات الشاشة (إن أمكن)
+- تفاصيل البيئة (نظام التشغيل، إصدار .NET، إصدار SQL Server)
+
+</div>
+
+---
+
+## 📄 الترخيص
+
+<div dir="rtl">
+
+هذا المشروع مرخص بموجب **ترخيص MIT** - انظر ملف [LICENSE](LICENSE) للتفاصيل.
+
+</div>
+```
+ترخيص MIT
+
+حقوق النشر (c) 2024 عمر
+
+يُمنح بموجب هذا إذن مجاني لأي شخص يحصل على نسخة
+من هذا البرنامج والملفات الوثائقية المرتبطة ("البرنامج")، للتعامل
+في البرنامج دون قيود، بما في ذلك على سبيل المثال لا الحصر الحقوق
+في الاستخدام والنسخ والتعديل والدمج والنشر والتوزيع والترخيص من الباطن و/أو بيع
+نسخ من البرنامج، والسماح للأشخاص الذين يتم تزويدهم بالبرنامج
+بذلك، مع مراعاة الشروط التالية:
+
+يجب تضمين إشعار حقوق النشر أعلاه وهذا الإشعار بالإذن في جميع
+النسخ أو الأجزاء الكبيرة من البرنامج.
+```
+
+---
+
+## 📧 التواصل
+
 <div align="center">
 
-### ⭐ If you found this project helpful, please give it a star!
+**عمر محمد**
 
-Made with ❤️ by [Omar Mohamed](https://github.com/Omartube70)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Omartube70)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:your.email@example.com)
+
+**رابط المشروع:** [https://github.com/Omartube70/DVLD](https://github.com/Omartube70/DVLD)
+
+</div>
+
+---
+
+<div align="center" dir="rtl">
+
+### ⭐ إذا وجدت هذا المشروع مفيداً، يرجى منحه نجمة!
+
+صُنع بـ ❤️ بواسطة [عمر محمد](https://github.com/Omartube70)
 
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Omartube70.DVLD)
 
@@ -444,16 +492,20 @@ Made with ❤️ by [Omar Mohamed](https://github.com/Omartube70)
 
 ---
 
-## 🙏 Acknowledgments
+## 🙏 شكر وتقدير
 
-- Icons by [Font Awesome](https://fontawesome.com/)
-- Badges by [Shields.io](https://shields.io/)
-- README inspiration from [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+<div dir="rtl">
+
+- الأيقونات من [Font Awesome](https://fontawesome.com/)
+- الشارات من [Shields.io](https://shields.io/)
+- إلهام README من [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+
+</div>
 
 ---
 
 <div align="center">
 
-**[⬆ Back to Top](#-dvld---driving--vehicle-license-department-system)**
+**[⬆ العودة إلى الأعلى](#-نظام-إدارة-رخص-القيادة-والمركبات-dvld)**
 
 </div>
