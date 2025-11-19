@@ -11,7 +11,7 @@
 
 **نظام مكتبي شامل لإدارة رخص القيادة وتسجيل المركبات**
 
-[المميزات](#-المميزات) • [المعمارية](#️-المعمارية) • [التثبيت](#-التثبيت) • [التقنيات](#-التقنيات-المستخدمة) • [لقطات الشاشة](#-لقطات-الشاشة)
+[المميزات](#-المميزات) • [المعمارية](#️-المعمارية) • [التثبيت](#-التثبيت) • [التقنيات](#-التقنيات-المستخدمة)
 
 </div>
 
@@ -26,7 +26,6 @@
 - [التثبيت](#-التثبيت)
 - [الاستخدام](#-الاستخدام)
 - [قاعدة البيانات](#️-قاعدة-البيانات)
-- [لقطات الشاشة](#-لقطات-الشاشة)
 - [المساهمة](#-المساهمة)
 - [الترخيص](#-الترخيص)
 - [التواصل](#-التواصل)
@@ -247,18 +246,17 @@ GO
 #### 3️⃣ تكوين سلسلة الاتصال
 
 1. افتح ملف الحل `DVLD.sln` في Visual Studio
-2. انتقل إلى مشروع **DVLD_DataAccess**
-3. افتح ملف `clsDataAccessSettings.cs`
-4. قم بتحديث سلسلة الاتصال:
+2. انتقل إلى مشروع **DVLD**
+3. افتح ملف `App.Config`
+4. قم بتحديث سلسلة الاتصال في قسم `<connectionStrings>`:
 
 </div>
-```csharp
-public static class clsDataAccessSettings
-{
-    // قم بتحديث هذا باسم خادم SQL Server الخاص بك
-    public static string ConnectionString = 
-        "Server=YOUR_SERVER_NAME;Database=DVLD;Integrated Security=True;";
-}
+```xml
+<connectionStrings>
+    <add name="DvldDb" 
+         connectionString="Server=YOUR_SERVER_NAME;Database=DVLD;Integrated Security=True;" 
+         providerName="System.Data.SqlClient" />
+</connectionStrings>
 ```
 
 <div dir="rtl">
@@ -268,6 +266,25 @@ public static class clsDataAccessSettings
 - `localhost`
 - `(localdb)\MSSQLLocalDB` (LocalDB)
 - `YOUR_COMPUTER_NAME\SQLEXPRESS`
+
+**ملاحظة:** الكود الحالي يقوم بقراءة سلسلة الاتصال من ملف `App.Config` كالتالي:
+
+</div>
+```csharp
+using System;
+using System.Configuration;
+
+namespace DVLD_DataAccess
+{
+    static class clsDataAccessSettings
+    {
+        public static string ConnectionString = 
+            ConfigurationManager.ConnectionStrings["DvldDb"].ConnectionString;
+    }
+}
+```
+
+<div dir="rtl">
 
 #### 4️⃣ البناء والتشغيل
 
@@ -376,34 +393,6 @@ public static class clsDataAccessSettings
 
 ---
 
-## 📸 لقطات الشاشة
-
-<div dir="rtl">
-
-<details open>
-<summary><b>🖼️ عرض لقطات شاشة التطبيق</b></summary>
-
-### شاشة تسجيل الدخول
-*أضف لقطة الشاشة هنا*
-
-### لوحة التحكم الرئيسية
-*أضف لقطة الشاشة هنا*
-
-### إدارة الأشخاص
-*أضف لقطة الشاشة هنا*
-
-### طلب الرخصة
-*أضف لقطة الشاشة هنا*
-
-### جدولة الاختبارات
-*أضف لقطة الشاشة هنا*
-
-</details>
-
-</div>
-
----
-
 ## 🤝 المساهمة
 
 <div dir="rtl">
@@ -468,7 +457,7 @@ public static class clsDataAccessSettings
 
 <div align="center">
 
-**عمر محمد**
+  **Omar Mohamed**
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Omartube70)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)
