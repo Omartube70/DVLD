@@ -1,4 +1,4 @@
-# 🚦 Driving License Management System (DVLD)
+# 🚦 Driving & Vehicle License Department System (DVLD)
 
 <div align="center" dir="rtl">
 
@@ -7,21 +7,6 @@
 **نظام مكتبي شامل لإدارة رخص القيادة وتسجيل المركبات**
 
 </div>
-
----
-
-## 📋 جدول المحتويات
-
-- [نظرة عامة](#-نظرة-عامة)
-- [المميزات](#-المميزات)
-- [المعمارية](#️-المعمارية)
-- [التقنيات المستخدمة](#-التقنيات-المستخدمة)
-- [التثبيت](#-التثبيت)
-- [الاستخدام](#-الاستخدام)
-- [قاعدة البيانات](#️-قاعدة-البيانات)
-- [المساهمة](#-المساهمة)
-- [الترخيص](#-الترخيص)
-- [التواصل](#-التواصل)
 
 ---
 
@@ -494,6 +479,6 @@ namespace DVLD_DataAccess
 
 <div align="center">
 
-**[⬆ العودة إلى الأعلى](#-driving-license-management-system-dvld)**
+**[⬆ العودة إلى الأعلى](#-driving--vehicle-license-department-system-dvld)**
 
 </div>
