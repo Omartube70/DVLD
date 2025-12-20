@@ -1,34 +1,12 @@
-# 🚦 نظام إدارة رخص القيادة والمركبات (DVLD)
+# 🚦 Driving & Vehicle License Department System (DVLD)
 
 <div align="center" dir="rtl">
 
 ![عرض توضيحي للنظام](https://github.com/Omartube70/DVLD/blob/master/DVLD.gif)
 
-[![.NET Framework](https://img.shields.io/badge/.NET%20Framework-4.8-512BD4?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/)
-[![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)](https://docs.microsoft.com/en-us/dotnet/csharp/)
-[![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)](https://www.microsoft.com/en-us/sql-server)
-[![Windows Forms](https://img.shields.io/badge/Windows%20Forms-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://docs.microsoft.com/en-us/dotnet/desktop/winforms/)
-
 **نظام مكتبي شامل لإدارة رخص القيادة وتسجيل المركبات**
 
-[المميزات](#-المميزات) • [المعمارية](#️-المعمارية) • [التثبيت](#-التثبيت) • [التقنيات](#-التقنيات-المستخدمة)
-
 </div>
-
----
-
-## 📋 جدول المحتويات
-
-- [نظرة عامة](#-نظرة-عامة)
-- [المميزات](#-المميزات)
-- [المعمارية](#️-المعمارية)
-- [التقنيات المستخدمة](#-التقنيات-المستخدمة)
-- [التثبيت](#-التثبيت)
-- [الاستخدام](#-الاستخدام)
-- [قاعدة البيانات](#️-قاعدة-البيانات)
-- [المساهمة](#-المساهمة)
-- [الترخيص](#-الترخيص)
-- [التواصل](#-التواصل)
 
 ---
 
@@ -184,12 +162,12 @@
 
 | الفئة | التقنية |
 |-------|---------|
-| **لغة البرمجة** | ![C#](https://img.shields.io/badge/C%23-239120?style=flat&logo=c-sharp&logoColor=white) |
-| **إطار العمل** | ![.NET](https://img.shields.io/badge/.NET%20Framework%204.8-512BD4?style=flat&logo=.net&logoColor=white) |
-| **واجهة المستخدم** | ![Windows Forms](https://img.shields.io/badge/Windows%20Forms-0078D6?style=flat&logo=windows&logoColor=white) |
-| **قاعدة البيانات** | ![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=flat&logo=microsoft-sql-server&logoColor=white) |
-| **الوصول للبيانات** | ![ADO.NET](https://img.shields.io/badge/ADO.NET-512BD4?style=flat&logo=.net&logoColor=white) |
-| **الأمان** | ![BCrypt](https://img.shields.io/badge/BCrypt-323330?style=flat&logo=lock&logoColor=white) |
+| **لغة البرمجة** | C# |
+| **إطار العمل** | .NET Framework 4.8 |
+| **واجهة المستخدم** | Windows Forms |
+| **قاعدة البيانات** | SQL Server |
+| **الوصول للبيانات** | ADO.NET |
+| **الأمان** | BCrypt |
 
 </div>
 
@@ -203,15 +181,16 @@
 
 قبل البدء، تأكد من تثبيت ما يلي:
 
-- ![Visual Studio](https://img.shields.io/badge/Visual%20Studio%202019+-5C2D91?style=flat&logo=visual-studio&logoColor=white) أو أحدث
-- ![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=flat&logo=microsoft-sql-server&logoColor=white) (2016 أو أحدث)
-- ![.NET Framework](https://img.shields.io/badge/.NET%20Framework%204.8-512BD4?style=flat&logo=.net&logoColor=white)
+- Visual Studio 2019 أو أحدث
+- SQL Server (2016 أو أحدث)
+- .NET Framework 4.8
 
 ### 🔧 خطوات التثبيت
 
 #### 1️⃣ استنساخ المستودع
 
 </div>
+
 ```bash
 git clone https://github.com/Omartube70/DVLD.git
 cd DVLD
@@ -227,6 +206,7 @@ cd DVLD
 4. قم بتنفيذ السكريبت لإنشاء الجداول والإجراءات المخزنة وبيانات البداية
 
 </div>
+
 ```sql
 -- نفذ في SSMS
 USE master;
@@ -251,6 +231,7 @@ GO
 4. قم بتحديث سلسلة الاتصال في قسم `<connectionStrings>`:
 
 </div>
+
 ```xml
 <connectionStrings>
     <add name="DvldDb" 
@@ -270,6 +251,7 @@ GO
 **ملاحظة:** الكود الحالي يقوم بقراءة سلسلة الاتصال من ملف `App.Config` كالتالي:
 
 </div>
+
 ```csharp
 using System;
 using System.Configuration;
@@ -295,6 +277,7 @@ namespace DVLD_DataAccess
 ### 🔐 بيانات تسجيل الدخول الافتراضية
 
 </div>
+
 ```
 اسم المستخدم: Admin
 كلمة المرور: 1234
@@ -435,6 +418,7 @@ namespace DVLD_DataAccess
 هذا المشروع مرخص بموجب **ترخيص MIT** - انظر ملف [LICENSE](LICENSE) للتفاصيل.
 
 </div>
+
 ```
 ترخيص MIT
 
@@ -457,7 +441,7 @@ namespace DVLD_DataAccess
 
 <div align="center">
 
-  **Omar Mohamed**
+**Omar Mohamed**
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Omartube70)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)
@@ -495,6 +479,6 @@ namespace DVLD_DataAccess
 
 <div align="center">
 
-**[⬆ العودة إلى الأعلى](#-نظام-إدارة-رخص-القيادة-والمركبات-dvld)**
+**[⬆ العودة إلى الأعلى](#-driving--vehicle-license-department-system-dvld)**
 
 </div>
