@@ -125,7 +125,7 @@ namespace DVLD_Buisness
 
         public static DataTable GetAllLicenses()
         {
-            return clsLicenseData.GetAllLicenses();
+            return clsLicenseData.GetPaged(1,10);
 
         }
 
