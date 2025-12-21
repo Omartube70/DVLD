@@ -1,518 +1,409 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
-
 
 namespace DVLD_DataAccess
 {
     public class clsUserData
     {
-       
         public static bool GetUserInfoByUserID(int UserID, ref int PersonID, ref string UserName,
             ref string PasswordHash, ref bool IsActive)
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "SELECT * FROM Users WHERE UserID = @UserID";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@UserID", UserID);
-
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("Users.GetByUserID", connection))
                 {
-                    // The record was found
-                    isFound = true;
+                    command.CommandType = CommandType.StoredProcedure;
 
-                    PersonID = (int)reader["PersonID"];
-                    UserName = (string)reader["UserName"];
-                    PasswordHash = (string)reader["PasswordHash"];
-                    IsActive = (bool)reader["IsActive"];
-                    
+                    command.Parameters.Add("@UserID", SqlDbType.Int).Value = UserID;
 
+                    var personParam = command.Parameters.Add("@PersonID", SqlDbType.Int);
+                    personParam.Direction = ParameterDirection.Output;
+
+                    var userNameParam = command.Parameters.Add("@UserName", SqlDbType.NVarChar, 50);
+                    userNameParam.Direction = ParameterDirection.Output;
+
+                    var passwordParam = command.Parameters.Add("@PasswordHash", SqlDbType.NVarChar, 256);
+                    passwordParam.Direction = ParameterDirection.Output;
+
+                    var isActiveParam = command.Parameters.Add("@IsActive", SqlDbType.Bit);
+                    isActiveParam.Direction = ParameterDirection.Output;
+
+                    var isFoundParam = command.Parameters.Add("@IsFound", SqlDbType.Bit);
+                    isFoundParam.Direction = ParameterDirection.Output;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    isFound = (bool)isFoundParam.Value;
+
+                    if (isFound)
+                    {
+                        PersonID = (int)personParam.Value;
+                        UserName = (string)userNameParam.Value;
+                        PasswordHash = (string)passwordParam.Value;
+                        IsActive = (bool)isActiveParam.Value;
+                    }
                 }
-                else
-                {
-                    // The record was not found
-                    isFound = false;
-                }
-
-                reader.Close();
-
-
             }
             catch (Exception ex)
             {
                 EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
-                
                 isFound = false;
-            }
-            finally
-            {
-                connection.Close();
             }
 
             return isFound;
         }
 
-
         public static bool GetUserInfoByPersonID(int PersonID, ref int UserID, ref string UserName,
-          ref string PasswordHash,ref bool IsActive)
+            ref string PasswordHash, ref bool IsActive)
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "SELECT * FROM Users WHERE PersonID = @PersonID";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("Users.GetByPersonID", connection))
                 {
-                    // The record was found
-                    isFound = true;
+                    command.CommandType = CommandType.StoredProcedure;
 
-                    UserID = (int)reader["UserID"];
-                    UserName = (string)reader["UserName"];
-                    PasswordHash = (string)reader["PasswordHash"];
-                    IsActive = (bool)reader["IsActive"];
+                    command.Parameters.Add("@PersonID", SqlDbType.Int).Value = PersonID;
 
+                    var userIdParam = command.Parameters.Add("@UserID", SqlDbType.Int);
+                    userIdParam.Direction = ParameterDirection.Output;
 
+                    var userNameParam = command.Parameters.Add("@UserName", SqlDbType.NVarChar, 50);
+                    userNameParam.Direction = ParameterDirection.Output;
+
+                    var passwordParam = command.Parameters.Add("@PasswordHash", SqlDbType.NVarChar, 256);
+                    passwordParam.Direction = ParameterDirection.Output;
+
+                    var isActiveParam = command.Parameters.Add("@IsActive", SqlDbType.Bit);
+                    isActiveParam.Direction = ParameterDirection.Output;
+
+                    var isFoundParam = command.Parameters.Add("@IsFound", SqlDbType.Bit);
+                    isFoundParam.Direction = ParameterDirection.Output;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    isFound = (bool)isFoundParam.Value;
+
+                    if (isFound)
+                    {
+                        UserID = (int)userIdParam.Value;
+                        UserName = (string)userNameParam.Value;
+                        PasswordHash = (string)passwordParam.Value;
+                        IsActive = (bool)isActiveParam.Value;
+                    }
                 }
-                else
-                {
-                    // The record was not found
-                    isFound = false;
-                }
-
-                reader.Close();
-
             }
             catch (Exception ex)
             {
                 EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
-
                 isFound = false;
-            }
-            finally
-            {
-                connection.Close();
             }
 
             return isFound;
         }
 
-        public static bool GetUserInfoByUsernameAndPasswordHash(string UserName,  string PasswordHash, 
+        public static bool GetUserInfoByUsernameAndPasswordHash(string UserName, string PasswordHash,
             ref int UserID, ref int PersonID, ref bool IsActive)
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "SELECT * FROM Users WHERE Username = @Username and PasswordHash=@PasswordHash;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@Username", UserName);
-            command.Parameters.AddWithValue("@PasswordHash", PasswordHash);
-
-
             try
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("Users.GetByUsernameAndPassword", connection))
                 {
-                    // The record was found
-                    isFound = true;
-                    UserID= (int)reader["UserID"];
-                    PersonID = (int)reader["PersonID"];
-                    UserName = (string)reader["UserName"];
-                    PasswordHash = (string)reader["PasswordHash"];
-                    IsActive = (bool)reader["IsActive"];
+                    command.CommandType = CommandType.StoredProcedure;
 
+                    command.Parameters.Add("@UserName", SqlDbType.NVarChar, 50).Value = UserName;
+                    command.Parameters.Add("@PasswordHash", SqlDbType.NVarChar, 256).Value = PasswordHash;
 
+                    var userIdParam = command.Parameters.Add("@UserID", SqlDbType.Int);
+                    userIdParam.Direction = ParameterDirection.Output;
+
+                    var personIdParam = command.Parameters.Add("@PersonID", SqlDbType.Int);
+                    personIdParam.Direction = ParameterDirection.Output;
+
+                    var isActiveParam = command.Parameters.Add("@IsActive", SqlDbType.Bit);
+                    isActiveParam.Direction = ParameterDirection.Output;
+
+                    var isFoundParam = command.Parameters.Add("@IsFound", SqlDbType.Bit);
+                    isFoundParam.Direction = ParameterDirection.Output;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    isFound = (bool)isFoundParam.Value;
+
+                    if (isFound)
+                    {
+                        UserID = (int)userIdParam.Value;
+                        PersonID = (int)personIdParam.Value;
+                        IsActive = (bool)isActiveParam.Value;
+                    }
                 }
-                else
-                {
-                    // The record was not found
-                    isFound = false;
-                }
-
-                reader.Close();
-
-
             }
             catch (Exception ex)
             {
                 EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
-
                 isFound = false;
-            }
-            finally
-            {
-                connection.Close();
             }
 
             return isFound;
         }
 
-        public static int AddNewUser(int PersonID,  string UserName,
-             string PasswordHash,  bool IsActive)
+        public static DataTable GetAllUsers()
         {
-            //this function will return the new person id if succeeded and -1 if not.
-            int UserID = -1;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = @"INSERT INTO Users (PersonID,UserName,PasswordHash,IsActive)
-                             VALUES (@PersonID, @UserName,@PasswordHash,@IsActive);
-                             SELECT SCOPE_IDENTITY();";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-            command.Parameters.AddWithValue("@UserName", UserName);
-            command.Parameters.AddWithValue("@PasswordHash", PasswordHash);
-            command.Parameters.AddWithValue("@IsActive", IsActive);
+            DataTable dt = new DataTable();
 
             try
             {
-                connection.Open();
-
-                object result = command.ExecuteScalar();
-
-                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("Users.GetAll", connection))
                 {
-                    UserID = insertedID;
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dt.Load(reader);
+                    }
                 }
             }
-
             catch (Exception ex)
             {
                 EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
-
             }
 
-            finally
+            return dt;
+        }
+
+        public static int AddNewUser(int PersonID, string UserName, string PasswordHash, bool IsActive)
+        {
+            int UserID = -1;
+
+            try
             {
-                connection.Close();
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("Users.AddNew", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@PersonID", PersonID);
+                    command.Parameters.AddWithValue("@UserName", UserName);
+                    command.Parameters.AddWithValue("@PasswordHash", PasswordHash);
+                    command.Parameters.AddWithValue("@IsActive", IsActive);
+
+                    var outputParam = command.Parameters.Add("@UserID", SqlDbType.Int);
+                    outputParam.Direction = ParameterDirection.Output;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    UserID = (int)outputParam.Value;
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
             }
 
             return UserID;
         }
 
-
         public static bool UpdateUser(int UserID, int PersonID, string UserName,
-             string PasswordHash, bool IsActive)
+            string PasswordHash, bool IsActive)
         {
-
-            int rowsAffected = 0;
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = @"Update  Users  
-                            set PersonID = @PersonID,
-                                UserName = @UserName,
-                                PasswordHash = @PasswordHash,
-                                IsActive = @IsActive
-                                where UserID = @UserID";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-            command.Parameters.AddWithValue("@UserName", UserName);
-            command.Parameters.AddWithValue("@PasswordHash", PasswordHash);
-            command.Parameters.AddWithValue("@IsActive", IsActive);
-            command.Parameters.AddWithValue("@UserID", UserID);
-
+            bool isUpdated = false;
 
             try
             {
-                connection.Open();
-                rowsAffected = command.ExecuteNonQuery();
-
-            }
-            catch (Exception ex)
-            {
-                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
-                return false;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-
-            return (rowsAffected > 0);
-        }
-
-
-        public static DataTable GetAllUsers()
-        {
-
-            DataTable dt = new DataTable();
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = @"SELECT  Users.UserID, Users.PersonID,
-                            FullName = People.FirstName + ' ' + People.SecondName + ' ' + ISNULL( People.ThirdName,'') +' ' + People.LastName,
-                             Users.UserName, Users.IsActive
-                             FROM  Users INNER JOIN
-                                    People ON Users.PersonID = People.PersonID";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
-
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("Users.UpdateUser", connection))
                 {
-                    dt.Load(reader);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@UserID", UserID);
+                    command.Parameters.AddWithValue("@PersonID", PersonID);
+                    command.Parameters.AddWithValue("@UserName", UserName);
+                    command.Parameters.AddWithValue("@PasswordHash", PasswordHash);
+                    command.Parameters.AddWithValue("@IsActive", IsActive);
+
+                    var outputParam = command.Parameters.Add("@IsUpdated", SqlDbType.Bit);
+                    outputParam.Direction = ParameterDirection.Output;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    isUpdated = (bool)outputParam.Value;
                 }
-
-                reader.Close();
-
-
             }
-
             catch (Exception ex)
             {
                 EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
             }
-            finally
-            {
-                connection.Close();
-            }
 
-            return dt;
-
+            return isUpdated;
         }
 
         public static bool DeleteUser(int UserID)
         {
-
-            int rowsAffected = 0;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = @"Delete Users 
-                                where UserID = @UserID";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@UserID", UserID);
+            bool isDeleted = false;
 
             try
             {
-                connection.Open();
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("Users.DeleteUser", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
 
-                rowsAffected = command.ExecuteNonQuery();
+                    command.Parameters.AddWithValue("@UserID", UserID);
 
+                    var outputParam = command.Parameters.Add("@IsDeleted", SqlDbType.Bit);
+                    outputParam.Direction = ParameterDirection.Output;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    isDeleted = (bool)outputParam.Value;
+                }
             }
             catch (Exception ex)
             {
                 EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
             }
-            finally
-            {
 
-                connection.Close();
-
-            }
-
-            return (rowsAffected > 0);
-
-        }
-
-        public static bool IsUserExist(int UserID)
-        {
-            bool isFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "SELECT Found=1 FROM Users WHERE UserID = @UserID";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@UserID", UserID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                isFound = reader.HasRows;
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
-                isFound = false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return isFound;
-        }
-
-        public static bool IsUserExist(string UserName)
-        {
-            bool isFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "SELECT Found=1 FROM Users WHERE UserName = @UserName";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@UserName", UserName);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                isFound = reader.HasRows;
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
-                isFound = false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return isFound;
-        }
-
-        public static bool IsUserExistForPersonID(int PersonID)
-        {
-            bool isFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "SELECT Found=1 FROM Users WHERE PersonID = @PersonID";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                isFound = reader.HasRows;
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
-                isFound = false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return isFound;
-        }
-
-        public static bool DoesPersonHaveUser44(int PersonID)
-        {
-            bool isFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "SELECT Found=1 FROM Users WHERE PersonID = @PersonID";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                isFound = reader.HasRows;
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
-                isFound = false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return isFound;
+            return isDeleted;
         }
 
         public static bool ChangePasswordHash(int UserID, string NewPasswordHash)
         {
-
-            int rowsAffected = 0;
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = @"Update  Users  
-                            set PasswordHash = @PasswordHash
-                            where UserID = @UserID";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@UserID", UserID);
+            bool isChanged = false;
 
             try
             {
-                connection.Open();
-                rowsAffected = command.ExecuteNonQuery();
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("Users.ChangePassword", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
 
+                    command.Parameters.AddWithValue("@UserID", UserID);
+                    command.Parameters.AddWithValue("@NewPasswordHash", NewPasswordHash);
+
+                    var outputParam = command.Parameters.Add("@IsChanged", SqlDbType.Bit);
+                    outputParam.Direction = ParameterDirection.Output;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    isChanged = (bool)outputParam.Value;
+                }
             }
             catch (Exception ex)
             {
                 EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
-                return false;
             }
 
-            finally
-            {
-                connection.Close();
-            }
-
-            return (rowsAffected > 0);
+            return isChanged;
         }
 
+        public static bool IsUserExist(int UserID)
+        {
+            bool isExist = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("Users.IsExistByUserID", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@UserID", UserID);
+
+                    var outputParam = command.Parameters.Add("@IsExist", SqlDbType.Bit);
+                    outputParam.Direction = ParameterDirection.Output;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    isExist = (bool)outputParam.Value;
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
+            }
+
+            return isExist;
+        }
+
+        public static bool IsUserExist(string UserName)
+        {
+            bool isExist = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("Users.IsExistByUsername", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@UserName", UserName);
+
+                    var outputParam = command.Parameters.Add("@IsExist", SqlDbType.Bit);
+                    outputParam.Direction = ParameterDirection.Output;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    isExist = (bool)outputParam.Value;
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
+            }
+
+            return isExist;
+        }
+
+        public static bool IsUserExistForPersonID(int PersonID)
+        {
+            bool isExist = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("Users.IsExistByPersonID", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@PersonID", PersonID);
+
+                    var outputParam = command.Parameters.Add("@IsExist", SqlDbType.Bit);
+                    outputParam.Direction = ParameterDirection.Output;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    isExist = (bool)outputParam.Value;
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
+            }
+
+            return isExist;
+        }
     }
 }

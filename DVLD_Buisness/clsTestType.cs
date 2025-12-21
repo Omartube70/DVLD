@@ -42,7 +42,7 @@ namespace DVLD_Buisness
         {
             //call DataAccess Layer 
 
-            this.ID =(clsTestType.enTestType) clsTestTypeData.AddNewTestType(this.Title,this.Description, this.Fees);
+            this.ID = (clsTestType.enTestType) clsTestTypeData.AddNewTestType(this.Title,this.Description, this.Fees);
               
             return (this.Title !="");
         }

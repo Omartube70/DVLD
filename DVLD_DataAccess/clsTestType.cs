@@ -82,6 +82,38 @@ namespace DVLD_DataAccess
             return dt;
         }
 
+        public static int AddNewTestType(string Title, string Description, float Fees)
+        {
+            int TestTypeID = -1;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("TestTypes.AddNew", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@Title", Title);
+                    command.Parameters.AddWithValue("@Description", Description);
+                    command.Parameters.AddWithValue("@Fees", Fees);
+
+                    var outputParam = command.Parameters.Add("@TestTypeID", SqlDbType.Int);
+                    outputParam.Direction = ParameterDirection.Output;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    TestTypeID = (int)outputParam.Value;
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
+            }
+
+            return TestTypeID;
+        }
+
         public static bool UpdateTestType(int TestTypeID, string Title, string Description, float Fees)
         {
             bool isUpdated = false;

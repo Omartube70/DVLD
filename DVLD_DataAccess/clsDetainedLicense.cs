@@ -63,7 +63,12 @@ namespace DVLD_DataAccess
                         FineFees = Convert.ToSingle(feesParam.Value);
                         CreatedByUserID = (int)createdByParam.Value;
                         IsReleased = (bool)isReleasedParam.Value;
-                        ReleaseDate = (DateTime)releaseDateParam.Value;
+
+                        // ✅ معالجة NULL بشكل صحيح
+                        ReleaseDate = (releaseDateParam.Value == DBNull.Value)
+                            ? DateTime.MaxValue
+                            : (DateTime)releaseDateParam.Value;
+
                         ReleasedByUserID = (int)releasedByParam.Value;
                         ReleaseApplicationID = (int)releaseAppParam.Value;
                     }
@@ -71,7 +76,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
+                EventLog.WriteEntry("DVLD", "Error in GetDetainedLicenseInfoByID: " + ex.Message,
+                    EventLogEntryType.Error);
                 isFound = false;
             }
 
@@ -79,10 +85,10 @@ namespace DVLD_DataAccess
         }
 
         public static bool GetDetainedLicenseInfoByLicenseID(int LicenseID,
-         ref int DetainID, ref DateTime DetainDate,
-         ref float FineFees, ref int CreatedByUserID,
-         ref bool IsReleased, ref DateTime ReleaseDate,
-         ref int ReleasedByUserID, ref int ReleaseApplicationID)
+            ref int DetainID, ref DateTime DetainDate,
+            ref float FineFees, ref int CreatedByUserID,
+            ref bool IsReleased, ref DateTime ReleaseDate,
+            ref int ReleasedByUserID, ref int ReleaseApplicationID)
         {
             bool isFound = false;
 
@@ -134,7 +140,12 @@ namespace DVLD_DataAccess
                         FineFees = Convert.ToSingle(feesParam.Value);
                         CreatedByUserID = (int)createdByParam.Value;
                         IsReleased = (bool)isReleasedParam.Value;
-                        ReleaseDate = (DateTime)releaseDateParam.Value;
+
+                        // ✅ معالجة NULL بشكل صحيح
+                        ReleaseDate = (releaseDateParam.Value == DBNull.Value)
+                            ? DateTime.MaxValue
+                            : (DateTime)releaseDateParam.Value;
+
                         ReleasedByUserID = (int)releasedByParam.Value;
                         ReleaseApplicationID = (int)releaseAppParam.Value;
                     }
@@ -142,7 +153,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
+                EventLog.WriteEntry("DVLD", "Error in GetDetainedLicenseInfoByLicenseID: " + ex.Message,
+                    EventLogEntryType.Error);
                 isFound = false;
             }
 
@@ -170,14 +182,14 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
+                EventLog.WriteEntry("DVLD", "Error in GetAllDetainedLicenses: " + ex.Message,
+                    EventLogEntryType.Error);
             }
 
             return dt;
         }
 
-        public static int AddNewDetainedLicense(
-            int LicenseID, DateTime DetainDate,
+        public static int AddNewDetainedLicense(int LicenseID, DateTime DetainDate,
             float FineFees, int CreatedByUserID)
         {
             int DetainID = -1;
@@ -205,14 +217,51 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
+                EventLog.WriteEntry("DVLD", "Error in AddNewDetainedLicense: " + ex.Message,
+                    EventLogEntryType.Error);
             }
 
             return DetainID;
         }
 
+        public static bool UpdateDetainedLicense(int DetainID, int LicenseID,
+            DateTime DetainDate, float FineFees, int CreatedByUserID)
+        {
+            bool isUpdated = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("DetainedLicenses.UpdateDetainedLicense", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@DetainID", DetainID);
+                    command.Parameters.AddWithValue("@LicenseID", LicenseID);
+                    command.Parameters.AddWithValue("@DetainDate", DetainDate);
+                    command.Parameters.AddWithValue("@FineFees", FineFees);
+                    command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+
+                    var outputParam = command.Parameters.Add("@IsUpdated", SqlDbType.Bit);
+                    outputParam.Direction = ParameterDirection.Output;
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    isUpdated = (bool)outputParam.Value;
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLog.WriteEntry("DVLD", "Error in UpdateDetainedLicense: " + ex.Message,
+                    EventLogEntryType.Error);
+            }
+
+            return isUpdated;
+        }
+
         public static bool ReleaseDetainedLicense(int DetainID,
-                 int ReleasedByUserID, int ReleaseApplicationID)
+            int ReleasedByUserID, int ReleaseApplicationID)
         {
             bool isReleased = false;
 
@@ -238,7 +287,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
+                EventLog.WriteEntry("DVLD", "Error in ReleaseDetainedLicense: " + ex.Message,
+                    EventLogEntryType.Error);
             }
 
             return isReleased;
@@ -268,7 +318,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
+                EventLog.WriteEntry("DVLD", "Error in IsLicenseDetained: " + ex.Message,
+                    EventLogEntryType.Error);
             }
 
             return IsDetained;

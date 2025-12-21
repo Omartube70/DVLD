@@ -1,55 +1,77 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using static DVLD_DataAccess.clsCountryData;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD_DataAccess
 {
     public class clsLicenseData
     {
-
-        public static bool GetLicenseInfoByID(int LicenseID,ref int ApplicationID,ref int DriverID,
-        ref int LicenseClass,ref DateTime IssueDate,ref DateTime ExpirationDate,ref string Notes,
-        ref float PaidFees,ref bool IsActive,ref byte IssueReason,ref int CreatedByUserID)
+        public static bool GetLicenseInfoByID(int LicenseID, ref int ApplicationID, ref int DriverID,
+            ref int LicenseClass, ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes,
+            ref float PaidFees, ref bool IsActive, ref byte IssueReason, ref int CreatedByUserID)
         {
             bool isFound = false;
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand command = new SqlCommand("Licenses.GetLicenseInfoByID", connection))
+                using (SqlCommand command = new SqlCommand("Licenses.GetByID", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
+
                     command.Parameters.Add("@LicenseID", SqlDbType.Int).Value = LicenseID;
 
+                    var appIdParam = command.Parameters.Add("@ApplicationID", SqlDbType.Int);
+                    appIdParam.Direction = ParameterDirection.Output;
+
+                    var driverIdParam = command.Parameters.Add("@DriverID", SqlDbType.Int);
+                    driverIdParam.Direction = ParameterDirection.Output;
+
+                    var licenseClassParam = command.Parameters.Add("@LicenseClass", SqlDbType.Int);
+                    licenseClassParam.Direction = ParameterDirection.Output;
+
+                    var issueDateParam = command.Parameters.Add("@IssueDate", SqlDbType.DateTime);
+                    issueDateParam.Direction = ParameterDirection.Output;
+
+                    var expDateParam = command.Parameters.Add("@ExpirationDate", SqlDbType.DateTime);
+                    expDateParam.Direction = ParameterDirection.Output;
+
+                    var notesParam = command.Parameters.Add("@Notes", SqlDbType.NVarChar, 500);
+                    notesParam.Direction = ParameterDirection.Output;
+
+                    var feesParam = command.Parameters.Add("@PaidFees", SqlDbType.SmallMoney);
+                    feesParam.Direction = ParameterDirection.Output;
+
+                    var isActiveParam = command.Parameters.Add("@IsActive", SqlDbType.Bit);
+                    isActiveParam.Direction = ParameterDirection.Output;
+
+                    var issueReasonParam = command.Parameters.Add("@IssueReason", SqlDbType.TinyInt);
+                    issueReasonParam.Direction = ParameterDirection.Output;
+
+                    var createdByParam = command.Parameters.Add("@CreatedByUserID", SqlDbType.Int);
+                    createdByParam.Direction = ParameterDirection.Output;
+
+                    var isFoundParam = command.Parameters.Add("@IsFound", SqlDbType.Bit);
+                    isFoundParam.Direction = ParameterDirection.Output;
+
                     connection.Open();
+                    command.ExecuteNonQuery();
 
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    isFound = (bool)isFoundParam.Value;
+
+                    if (isFound)
                     {
-                        if (reader.Read())
-                        {
-                            isFound = true;
-
-                            ApplicationID = (int)reader["ApplicationID"];
-                            DriverID = (int)reader["DriverID"];
-                            LicenseClass = (int)reader["LicenseClass"];
-                            IssueDate = (DateTime)reader["IssueDate"];
-                            ExpirationDate = (DateTime)reader["ExpirationDate"];
-                            Notes = reader["Notes"] == DBNull.Value ? "" : (string)reader["Notes"];
-                            PaidFees = Convert.ToSingle(reader["PaidFees"]);
-                            IsActive = (bool)reader["IsActive"];
-                            IssueReason = (byte)reader["IssueReason"];
-                            CreatedByUserID = (int)reader["CreatedByUserID"];
-                        }
+                        ApplicationID = (int)appIdParam.Value;
+                        DriverID = (int)driverIdParam.Value;
+                        LicenseClass = (int)licenseClassParam.Value;
+                        IssueDate = (DateTime)issueDateParam.Value;
+                        ExpirationDate = (DateTime)expDateParam.Value;
+                        Notes = (string)notesParam.Value;
+                        PaidFees = Convert.ToSingle(feesParam.Value);
+                        IsActive = (bool)isActiveParam.Value;
+                        IssueReason = (byte)issueReasonParam.Value;
+                        CreatedByUserID = (int)createdByParam.Value;
                     }
                 }
             }
@@ -62,6 +84,7 @@ namespace DVLD_DataAccess
             return isFound;
         }
 
+        // باقي الدوال تبقى كما هي...
         public static DataTable GetPaged(int PageNumber, int RowsPerPage)
         {
             DataTable dt = new DataTable();
@@ -88,18 +111,14 @@ namespace DVLD_DataAccess
             }
 
             return dt;
-
-
         }
 
         public static DataTable GetDriverLicenses(int DriverID)
         {
-
             DataTable dt = new DataTable();
 
             try
             {
-
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
                 using (SqlCommand command = new SqlCommand("Licenses.GetDriverLicenses", connection))
                 {
@@ -114,18 +133,17 @@ namespace DVLD_DataAccess
                     }
                 }
             }
-
             catch (Exception ex)
             {
                 EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
             }
-            return dt;
 
+            return dt;
         }
 
-        public static int AddNewLicense(  int ApplicationID, int DriverID,  int LicenseClass,
-             DateTime IssueDate,  DateTime ExpirationDate,  string Notes,
-             float PaidFees,  bool IsActive,byte IssueReason,  int CreatedByUserID)
+        public static int AddNewLicense(int ApplicationID, int DriverID, int LicenseClass,
+            DateTime IssueDate, DateTime ExpirationDate, string Notes,
+            float PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
         {
             int LicenseID = -1;
             try
@@ -135,24 +153,17 @@ namespace DVLD_DataAccess
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-
                     command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
                     command.Parameters.AddWithValue("@DriverID", DriverID);
                     command.Parameters.AddWithValue("@LicenseClass", LicenseClass);
                     command.Parameters.AddWithValue("@IssueDate", IssueDate);
                     command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
-
-                    if (Notes == "")
-                        command.Parameters.AddWithValue("@Notes", DBNull.Value);
-                    else
-                        command.Parameters.AddWithValue("@Notes", Notes);
-
+                    command.Parameters.AddWithValue("@Notes", string.IsNullOrEmpty(Notes) ? (object)DBNull.Value : Notes);
                     command.Parameters.AddWithValue("@PaidFees", PaidFees);
                     command.Parameters.AddWithValue("@IsActive", IsActive);
                     command.Parameters.AddWithValue("@IssueReason", IssueReason);
                     command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
-                    // Output parameter
                     var outputParam = command.Parameters.Add("@LicenseID", SqlDbType.Int);
                     outputParam.Direction = ParameterDirection.Output;
 
@@ -162,19 +173,17 @@ namespace DVLD_DataAccess
                     LicenseID = (int)outputParam.Value;
                 }
             }
-
             catch (Exception ex)
             {
                 EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
-
             }
+
             return LicenseID;
         }
 
-
-        public static bool UpdateLicense(int LicenseID ,int ApplicationID, int DriverID, int LicenseClass,
-             DateTime IssueDate, DateTime ExpirationDate, string Notes,
-             float PaidFees, bool IsActive,byte IssueReason, int CreatedByUserID)
+        public static bool UpdateLicense(int LicenseID, int ApplicationID, int DriverID, int LicenseClass,
+            DateTime IssueDate, DateTime ExpirationDate, string Notes,
+            float PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
         {
             bool IsUpdated = false;
 
@@ -191,18 +200,12 @@ namespace DVLD_DataAccess
                     command.Parameters.AddWithValue("@LicenseClass", LicenseClass);
                     command.Parameters.AddWithValue("@IssueDate", IssueDate);
                     command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
-
-                    if (Notes == "")
-                        command.Parameters.AddWithValue("@Notes", DBNull.Value);
-                    else
-                        command.Parameters.AddWithValue("@Notes", Notes);
-
+                    command.Parameters.AddWithValue("@Notes", string.IsNullOrEmpty(Notes) ? (object)DBNull.Value : Notes);
                     command.Parameters.AddWithValue("@PaidFees", PaidFees);
                     command.Parameters.AddWithValue("@IsActive", IsActive);
                     command.Parameters.AddWithValue("@IssueReason", IssueReason);
                     command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
-                    // Output parameter
                     var outputParam = command.Parameters.Add("@IsUpdated", SqlDbType.Bit);
                     outputParam.Direction = ParameterDirection.Output;
 
@@ -218,9 +221,8 @@ namespace DVLD_DataAccess
                 return false;
             }
 
-            return (IsUpdated);
+            return IsUpdated;
         }
-
 
         public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
         {
@@ -283,6 +285,5 @@ namespace DVLD_DataAccess
 
             return isDeactivated;
         }
-
     }
 }
