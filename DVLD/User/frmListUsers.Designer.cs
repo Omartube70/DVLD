@@ -51,6 +51,10 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.btnAddUser = new System.Windows.Forms.Button();
+            this.lblPage = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.cmsUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
@@ -244,7 +248,6 @@
             this.cbIsActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbIsActive.FormattingEnabled = true;
             this.cbIsActive.Items.AddRange(new object[] {
-            "All",
             "Yes",
             "No"});
             this.cbIsActive.Location = new System.Drawing.Point(315, 267);
@@ -292,6 +295,52 @@
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
+            // lblPage
+            // 
+            this.lblPage.AutoSize = true;
+            this.lblPage.Location = new System.Drawing.Point(300, 641);
+            this.lblPage.Name = "lblPage";
+            this.lblPage.Size = new System.Drawing.Size(27, 20);
+            this.lblPage.TabIndex = 111;
+            this.lblPage.Text = "??";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(198, 641);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 20);
+            this.label4.TabIndex = 110;
+            this.label4.Text = "# Page:";
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Enabled = false;
+            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrevious.Image = global::DVLD.Properties.Resources.arrow_back_3783__1_;
+            this.btnPrevious.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrevious.Location = new System.Drawing.Point(389, 632);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(135, 36);
+            this.btnPrevious.TabIndex = 109;
+            this.btnPrevious.Text = "   Previous";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Image = global::DVLD.Properties.Resources.Next_32;
+            this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNext.Location = new System.Drawing.Point(546, 632);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(135, 36);
+            this.btnNext.TabIndex = 108;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
             // frmListUsers
             // 
             this.AcceptButton = this.btnAddUser;
@@ -300,6 +349,10 @@
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(920, 680);
+            this.Controls.Add(this.lblPage);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnPrevious);
+            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.cbIsActive);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAddUser);
@@ -349,5 +402,9 @@
         private System.Windows.Forms.ToolStripMenuItem ChangePasswordtoolStripMenuItem;
         private System.Windows.Forms.ComboBox cbIsActive;
         private System.Windows.Forms.Button btnAddUser;
+        private System.Windows.Forms.Label lblPage;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnNext;
     }
 }

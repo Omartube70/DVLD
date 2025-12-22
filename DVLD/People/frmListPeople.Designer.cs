@@ -54,6 +54,7 @@
             this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.lblPage = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.cbGendor = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.cmsPeople.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
@@ -183,6 +184,7 @@
             this.txtFilterValue.Name = "txtFilterValue";
             this.txtFilterValue.Size = new System.Drawing.Size(256, 26);
             this.txtFilterValue.TabIndex = 5;
+            this.txtFilterValue.Visible = false;
             this.txtFilterValue.TextChanged += new System.EventHandler(this.txtFilterValue_TextChanged);
             this.txtFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterValue_KeyPress);
             // 
@@ -316,7 +318,7 @@
             // lblPage
             // 
             this.lblPage.AutoSize = true;
-            this.lblPage.Location = new System.Drawing.Point(286, 598);
+            this.lblPage.Location = new System.Drawing.Point(320, 598);
             this.lblPage.Name = "lblPage";
             this.lblPage.Size = new System.Drawing.Size(27, 20);
             this.lblPage.TabIndex = 107;
@@ -326,11 +328,25 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(184, 598);
+            this.label4.Location = new System.Drawing.Point(218, 598);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 20);
             this.label4.TabIndex = 106;
             this.label4.Text = "# Page:";
+            // 
+            // cbGendor
+            // 
+            this.cbGendor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGendor.FormattingEnabled = true;
+            this.cbGendor.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cbGendor.Location = new System.Drawing.Point(306, 252);
+            this.cbGendor.Name = "cbGendor";
+            this.cbGendor.Size = new System.Drawing.Size(121, 28);
+            this.cbGendor.TabIndex = 108;
+            this.cbGendor.Visible = false;
+            this.cbGendor.SelectedIndexChanged += new System.EventHandler(this.cbGendor_SelectedIndexChanged);
             // 
             // frmListPeople
             // 
@@ -340,6 +356,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(1343, 643);
+            this.Controls.Add(this.cbGendor);
             this.Controls.Add(this.lblPage);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnPrevious);
@@ -396,5 +413,6 @@
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Label lblPage;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbGendor;
     }
 }

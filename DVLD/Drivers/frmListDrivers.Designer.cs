@@ -45,6 +45,10 @@
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblPage = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).BeginInit();
             this.cmsDrivers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDriverImage)).BeginInit();
@@ -221,12 +225,62 @@
             this.label1.TabIndex = 124;
             this.label1.Text = "Filter By:";
             // 
+            // lblPage
+            // 
+            this.lblPage.AutoSize = true;
+            this.lblPage.Location = new System.Drawing.Point(320, 610);
+            this.lblPage.Name = "lblPage";
+            this.lblPage.Size = new System.Drawing.Size(27, 20);
+            this.lblPage.TabIndex = 130;
+            this.lblPage.Text = "??";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(218, 610);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 20);
+            this.label4.TabIndex = 129;
+            this.label4.Text = "# Page:";
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Enabled = false;
+            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrevious.Image = global::DVLD.Properties.Resources.arrow_back_3783__1_;
+            this.btnPrevious.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrevious.Location = new System.Drawing.Point(510, 603);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(135, 36);
+            this.btnPrevious.TabIndex = 128;
+            this.btnPrevious.Text = "   Previous";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Image = global::DVLD.Properties.Resources.Next_32;
+            this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNext.Location = new System.Drawing.Point(667, 603);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(135, 36);
+            this.btnNext.TabIndex = 127;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
             // frmListDrivers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1127, 649);
+            this.Controls.Add(this.lblPage);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnPrevious);
+            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.txtFilterValue);
             this.Controls.Add(this.label1);
@@ -268,5 +322,9 @@
         private System.Windows.Forms.ToolStripMenuItem issueInternationalLicenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showPersonLicenseHistoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.Label lblPage;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnNext;
     }
 }

@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsDetainedLicense.cs" />
-    <Compile Include="clsDriver.cs" />
+    <Compile Include="clsDriverData.cs" />
     <Compile Include="clsInternationalLicense.cs" />
     <Compile Include="clsLicense.cs" />
     <Compile Include="clsTestAppointment.cs" />

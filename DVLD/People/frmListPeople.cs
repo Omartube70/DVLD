@@ -19,17 +19,19 @@ namespace DVLD.People
         private const int _RowsPerPage = 100;
         private static int _CurrentPageNumber = 1;
         private static int TotalPages;
+        private static int RecordsCount;
+
 
         private static DataTable _dtAllPeople;
 
         //only select the columns that you want to show in the grid
         private DataTable _dtPeople;
 
-        private void _RefreshPeoplList(string FilterColumn = "")
+        private void _RefreshPeoplList(string FilterColumn = "" , string FilterValue = "")
         {
             if (!string.IsNullOrEmpty(FilterColumn))
             {
-                _dtAllPeople = clsPerson.GetPaged(FilterColumn: FilterColumn, FilterValue: txtFilterValue.Text.Trim());
+                _dtAllPeople = clsPerson.GetPaged(FilterColumn: FilterColumn, FilterValue: FilterValue);
             }
             else
             {
@@ -42,6 +44,7 @@ namespace DVLD.People
                                                        "Phone", "Email");
 
             dgvPeople.DataSource = _dtPeople;
+            lblRecordsCount.Text = dgvPeople.RowCount + "/" + RecordsCount;
         }
 
         private void _UpdateRecordsAndPageInfo()
@@ -51,7 +54,8 @@ namespace DVLD.People
             if(clsPerson.GetPagingInfo(ref TotalRecords, ref PagedRecords, _RowsPerPage))
             {
                 TotalPages = PagedRecords;
-                lblRecordsCount.Text = TotalRecords.ToString();
+                RecordsCount = TotalRecords;
+                lblRecordsCount.Text = RecordsCount.ToString();
                 lblPage.Text = _CurrentPageNumber + "/" + TotalPages.ToString();
             }
         }
@@ -113,6 +117,7 @@ namespace DVLD.People
         {
 
             string FilterColumn = "";
+            string FilterValue = txtFilterValue.Text.Trim();
             //Map Selected Filter to real Column name 
             switch (cbFilterBy.Text)
             {
@@ -169,20 +174,31 @@ namespace DVLD.People
                 return;
             }
 
-             _RefreshPeoplList(FilterColumn);
+             _RefreshPeoplList(FilterColumn, FilterValue);
         }
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-           txtFilterValue.Visible = (cbFilterBy.Text != "None");
-
-            if (txtFilterValue.Visible)
+            if (cbFilterBy.Text == "Gendor")
             {
+                cbGendor.Visible = true;
+                txtFilterValue.Visible = false;
+                cbGendor.SelectedIndex = 0;
+            }
+
+            else if (cbFilterBy.Text != "None")
+            {
+                txtFilterValue.Visible = true;
                 txtFilterValue.Text = "";
                 txtFilterValue.Focus();
             }
 
+            else
+            {
+                txtFilterValue.Visible = false;
+                cbGendor.Visible = false;
+                txtFilterValue.Text = "";
+            }
         }
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -303,6 +319,14 @@ namespace DVLD.People
                 btnNext.Enabled = true;
 
             btnPrevious.Enabled = (_CurrentPageNumber > 1);
+        }
+
+        private void cbGendor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string FilterColumn = "Gendor";
+            string FilterValue = cbGendor.Text;
+
+            _RefreshPeoplList(FilterColumn, FilterValue);
         }
     }
 }

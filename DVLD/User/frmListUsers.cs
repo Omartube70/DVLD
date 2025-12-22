@@ -13,11 +13,19 @@ namespace DVLD.User
 {
     public partial class frmListUsers : Form
     {
+        private const int _RowsPerPage = 50;
+        private static int _CurrentPageNumber = 1;
+        private static int TotalPages;
+        private static int RecordsCount;
+
+
         private static DataTable _dtAllUsers ;
+        private DataTable _dtUsers;
 
         public frmListUsers()
         {
             InitializeComponent();
+            _UpdateRecordsAndPageInfo();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -25,12 +33,42 @@ namespace DVLD.User
             this.Close();
         }
 
+        private void _RefreshUsersList(string FilterColumn = "", string FilterValue = "")
+        {
+            if (!string.IsNullOrEmpty(FilterColumn))
+            {
+                _dtAllUsers = clsUser.GetPaged(FilterColumn: FilterColumn, FilterValue: FilterValue);
+            }
+            else
+            {
+                _dtAllUsers = clsUser.GetPaged(_CurrentPageNumber, _RowsPerPage);
+            }
+
+            _dtUsers = _dtAllUsers.DefaultView.ToTable(false, "UserID", "PersonID",
+                "FullName", "UserName", "IsActive");
+
+            dgvUsers.DataSource = _dtUsers;
+            lblRecordsCount.Text = dgvUsers.RowCount + "/" + RecordsCount;
+        }
+
+        private void _UpdateRecordsAndPageInfo()
+        {
+            int TotalRecords = 0, PagedRecords = 0;
+
+            if (clsUser.GetPagingInfo(ref TotalRecords, ref PagedRecords, _RowsPerPage))
+            {
+                RecordsCount = TotalRecords;
+                TotalPages = PagedRecords;
+                lblRecordsCount.Text = RecordsCount.ToString();
+                lblPage.Text = _CurrentPageNumber + "/" + TotalPages.ToString();
+            }
+        }
+
         private void frmListUsers_Load(object sender, EventArgs e)
         {
-            _dtAllUsers = clsUser.GetAllUsers();
-            dgvUsers.DataSource = _dtAllUsers;
+            _RefreshUsersList();
+
             cbFilterBy.SelectedIndex = 0;
-            lblRecordsCount.Text = dgvUsers.Rows.Count.ToString();
 
             dgvUsers.Columns[0].HeaderText = "User ID";
             dgvUsers.Columns[0].Width = 110;
@@ -85,6 +123,7 @@ namespace DVLD.User
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
         {
             string FilterColumn = "";
+            string FilterValue = txtFilterValue.Text.Trim();
             //Map Selected Filter to real Column name 
             switch (cbFilterBy.Text)
             {
@@ -113,50 +152,19 @@ namespace DVLD.User
             //Reset the filters in case nothing selected or filter value conains nothing.
             if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
             {
-                _dtAllUsers.DefaultView.RowFilter = "";
-                lblRecordsCount.Text = dgvUsers.Rows.Count.ToString();
+                _RefreshUsersList();
                 return;
             }
 
-
-            if (FilterColumn != "FullName" && FilterColumn != "UserName")
-                //in this case we deal with numbers not string.
-                _dtAllUsers.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtFilterValue.Text.Trim());
-            else
-                _dtAllUsers.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtFilterValue.Text.Trim());
-
-            lblRecordsCount.Text = _dtAllUsers.Rows.Count.ToString();
+            _RefreshUsersList(FilterColumn,FilterValue);
         }
 
         private void cbIsActive_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-             
           string FilterColumn = "IsActive";
-          string FilterValue =cbIsActive.Text;
+          string FilterValue = cbIsActive.Text;
 
-            switch (FilterValue)
-            {
-                case "All":
-                    break;
-                case "Yes":
-                    FilterValue = "1";
-                    break;
-                case "No":
-                    FilterValue = "0"; 
-                    break;
-            }
-
-
-            if (FilterValue == "All")
-                _dtAllUsers.DefaultView.RowFilter = "";  
-            else
-                //in this case we deal with numbers not string.
-                _dtAllUsers.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, FilterValue);
-
-            lblRecordsCount.Text = _dtAllUsers.Rows.Count.ToString();
-
-
+            _RefreshUsersList(FilterColumn,FilterValue);
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
@@ -230,6 +238,43 @@ namespace DVLD.User
             
 
 
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            //Get Previous Page
+            _CurrentPageNumber--;
+
+            _RefreshUsersList();
+
+            lblPage.Text = _CurrentPageNumber.ToString() + "/" + TotalPages;
+
+            if (_CurrentPageNumber == TotalPages)
+                btnNext.Enabled = false;
+
+            else
+                btnNext.Enabled = true;
+
+            btnPrevious.Enabled = (_CurrentPageNumber > 1);
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            //Get Next Page
+            _CurrentPageNumber++;
+
+            _RefreshUsersList();
+
+            lblPage.Text = _CurrentPageNumber.ToString() + "/" + TotalPages;
+
+            if (_CurrentPageNumber == TotalPages)
+                btnNext.Enabled = false;
+
+            else
+                btnNext.Enabled = true;
+
+
+            btnPrevious.Enabled = (_CurrentPageNumber > 1);
         }
     }
 }

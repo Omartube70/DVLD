@@ -184,10 +184,16 @@ namespace DVLD_Buisness
         /// <summary>
         /// Returns a list of all users in the system.
         /// </summary>
-        public static DataTable GetAllUsers()
+        public static DataTable GetPaged(int PageNumber = 1, int RowsPerPage = 100, string FilterColumn = null, string FilterValue = null)
         {
-            return clsUserData.GetAllUsers();
+            return clsUserData.GetPaged(PageNumber,RowsPerPage,FilterColumn,FilterValue);
         }
+
+        public static bool GetPagingInfo(ref int TotalRecords, ref int TotalPage, int RowsPerPage = 100)
+        {
+            return clsUserData.GetPagingInfo(RowsPerPage, ref TotalRecords, ref TotalPage);
+        }
+
 
         /// <summary>
         /// Deletes a user by UserID.

@@ -1,4 +1,5 @@
-﻿using DVLD.Licenses.International_License;
+﻿using DVLD.Classes;
+using DVLD.Licenses.International_License;
 using DVLD.People;
 using DVLD_Buisness;
 using System;
@@ -15,12 +16,53 @@ namespace DVLD.Drivers
 {
     public partial class frmListDrivers : Form
     {
-        private DataTable _dtAllDrivers;
+
+        private const int _RowsPerPage = 100;
+        private static int _CurrentPageNumber = 1;
+        private static int TotalPages;
+        private static int RecordsCount;
+
+
+        private static DataTable _dtAllDrivers;
+        private DataTable _dtDrivers;
 
         public frmListDrivers()
         {
             InitializeComponent();
+            _UpdateRecordsAndPageInfo();
         }
+
+        private void _RefreshPeoplList(string FilterColumn = "", string FilterValue = "")
+        {
+            if (!string.IsNullOrEmpty(FilterColumn))
+            {
+                _dtAllDrivers = clsDriver.GetPaged(FilterColumn: FilterColumn, FilterValue: FilterValue);
+            }
+            else
+            {
+                _dtAllDrivers = clsDriver.GetPaged(_CurrentPageNumber, _RowsPerPage);
+            }
+
+            _dtDrivers = _dtAllDrivers.DefaultView.ToTable(false, "DriverID", "PersonID",
+                                                       "NationalNo", "FullName", "Date", "ActiveLicenses");
+
+            dgvDrivers.DataSource = _dtDrivers;
+            lblRecordsCount.Text = dgvDrivers.RowCount + "/" + RecordsCount;
+        }
+
+        private void _UpdateRecordsAndPageInfo()
+        {
+            int TotalRecords = 0, PagedRecords = 0;
+
+            if (clsDriver.GetPagingInfo(ref TotalRecords, ref PagedRecords, _RowsPerPage))
+            {
+                TotalPages = PagedRecords;
+                RecordsCount = TotalRecords;
+                lblRecordsCount.Text = RecordsCount.ToString();
+                lblPage.Text = _CurrentPageNumber + "/" + TotalPages.ToString();
+            }
+        }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -30,10 +72,9 @@ namespace DVLD.Drivers
 
         private void frmListDrivers_Load(object sender, EventArgs e)
         {
+            _RefreshPeoplList();
             cbFilterBy.SelectedIndex = 0;
-            _dtAllDrivers = clsDriver.GetAllDrivers();
-            dgvDrivers.DataSource = _dtAllDrivers;
-            lblRecordsCount.Text = dgvDrivers.Rows.Count.ToString();
+
             if (dgvDrivers.Rows.Count>0)
             {
                 dgvDrivers.Columns[0].HeaderText = "Driver ID";
@@ -151,6 +192,43 @@ namespace DVLD.Drivers
           
             frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(PersonID);
             frm.ShowDialog();
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            //Get Previous Page
+            _CurrentPageNumber--;
+
+            _RefreshPeoplList();
+
+            lblPage.Text = _CurrentPageNumber.ToString() + "/" + TotalPages;
+
+            if (_CurrentPageNumber == TotalPages)
+                btnNext.Enabled = false;
+
+            else
+                btnNext.Enabled = true;
+
+            btnPrevious.Enabled = (_CurrentPageNumber > 1);
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            //Get Next Page
+            _CurrentPageNumber++;
+
+            _RefreshPeoplList();
+
+            lblPage.Text = _CurrentPageNumber.ToString() + "/" + TotalPages;
+
+            if (_CurrentPageNumber == TotalPages)
+                btnNext.Enabled = false;
+
+            else
+                btnNext.Enabled = true;
+
+
+            btnPrevious.Enabled = (_CurrentPageNumber > 1);
         }
     }
 }
