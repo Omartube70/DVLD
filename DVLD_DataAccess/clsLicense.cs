@@ -84,7 +84,6 @@ namespace DVLD_DataAccess
             return isFound;
         }
 
-        // باقي الدوال تبقى كما هي...
         public static DataTable GetPaged(int PageNumber, int RowsPerPage)
         {
             DataTable dt = new DataTable();

@@ -46,9 +46,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.btnAddPerson = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnAddPerson2 = new System.Windows.Forms.Button();
+            this.pbPersonImage = new System.Windows.Forms.PictureBox();
+            this.lblPage = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.cmsPeople.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
@@ -63,7 +68,7 @@
             this.dgvPeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPeople.ContextMenuStrip = this.cmsPeople;
             this.dgvPeople.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvPeople.Location = new System.Drawing.Point(12, 291);
+            this.dgvPeople.Location = new System.Drawing.Point(13, 288);
             this.dgvPeople.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvPeople.MultiSelect = false;
             this.dgvPeople.Name = "dgvPeople";
@@ -77,7 +82,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPeople.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPeople.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPeople.Size = new System.Drawing.Size(1484, 371);
+            this.dgvPeople.Size = new System.Drawing.Size(1324, 294);
             this.dgvPeople.TabIndex = 0;
             this.dgvPeople.TabStop = false;
             this.dgvPeople.DoubleClick += new System.EventHandler(this.dgvPeople_DoubleClick);
@@ -169,7 +174,7 @@
             this.label1.Size = new System.Drawing.Size(80, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "Filter By:";
-             // 
+            // 
             // txtFilterValue
             // 
             this.txtFilterValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -207,7 +212,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 672);
+            this.label2.Location = new System.Drawing.Point(14, 598);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 20);
             this.label2.TabIndex = 8;
@@ -216,7 +221,7 @@
             // lblRecordsCount
             // 
             this.lblRecordsCount.AutoSize = true;
-            this.lblRecordsCount.Location = new System.Drawing.Point(116, 672);
+            this.lblRecordsCount.Location = new System.Drawing.Point(116, 598);
             this.lblRecordsCount.Name = "lblRecordsCount";
             this.lblRecordsCount.Size = new System.Drawing.Size(27, 20);
             this.lblRecordsCount.TabIndex = 9;
@@ -233,6 +238,68 @@
             this.lblTitle.Text = "Manage People";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnAddPerson
+            // 
+            this.btnAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPerson.Image = global::DVLD.Properties.Resources.Add_Person_40;
+            this.btnAddPerson.Location = new System.Drawing.Point(1408, 228);
+            this.btnAddPerson.Name = "btnAddPerson";
+            this.btnAddPerson.Size = new System.Drawing.Size(88, 55);
+            this.btnAddPerson.TabIndex = 91;
+            this.btnAddPerson.UseVisualStyleBackColor = true;
+            // 
+            // btnClose
+            // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::DVLD.Properties.Resources.Close_32;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(1202, 590);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(135, 36);
+            this.btnClose.TabIndex = 92;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Enabled = false;
+            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrevious.Image = global::DVLD.Properties.Resources.arrow_back_3783__1_;
+            this.btnPrevious.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrevious.Location = new System.Drawing.Point(579, 590);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(135, 36);
+            this.btnPrevious.TabIndex = 105;
+            this.btnPrevious.Text = "   Previous";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.txtPrevious_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Image = global::DVLD.Properties.Resources.Next_32;
+            this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNext.Location = new System.Drawing.Point(736, 590);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(135, 36);
+            this.btnNext.TabIndex = 104;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.txtNext_Click);
+            // 
+            // btnAddPerson2
+            // 
+            this.btnAddPerson2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPerson2.Image = global::DVLD.Properties.Resources.Add_Person_72;
+            this.btnAddPerson2.Location = new System.Drawing.Point(1249, 209);
+            this.btnAddPerson2.Name = "btnAddPerson2";
+            this.btnAddPerson2.Size = new System.Drawing.Size(88, 69);
+            this.btnAddPerson2.TabIndex = 102;
+            this.btnAddPerson2.UseVisualStyleBackColor = true;
+            this.btnAddPerson2.Click += new System.EventHandler(this.btnAddPerson_Click);
+            // 
             // pbPersonImage
             // 
             this.pbPersonImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -246,30 +313,24 @@
             this.pbPersonImage.TabIndex = 86;
             this.pbPersonImage.TabStop = false;
             // 
-            // btnAddPerson
+            // lblPage
             // 
-            this.btnAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddPerson.Image = global::DVLD.Properties.Resources.Add_Person_40;
-            this.btnAddPerson.Location = new System.Drawing.Point(1408, 228);
-            this.btnAddPerson.Name = "btnAddPerson";
-            this.btnAddPerson.Size = new System.Drawing.Size(88, 55);
-            this.btnAddPerson.TabIndex = 91;
-            this.btnAddPerson.UseVisualStyleBackColor = true;
-            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
+            this.lblPage.AutoSize = true;
+            this.lblPage.Location = new System.Drawing.Point(286, 598);
+            this.lblPage.Name = "lblPage";
+            this.lblPage.Size = new System.Drawing.Size(27, 20);
+            this.lblPage.TabIndex = 107;
+            this.lblPage.Text = "??";
             // 
-            // btnClose
+            // label4
             // 
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::DVLD.Properties.Resources.Close_32;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(1361, 672);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(135, 36);
-            this.btnClose.TabIndex = 92;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(184, 598);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 20);
+            this.label4.TabIndex = 106;
+            this.label4.Text = "# Page:";
             // 
             // frmListPeople
             // 
@@ -278,7 +339,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(1520, 740);
+            this.ClientSize = new System.Drawing.Size(1343, 643);
+            this.Controls.Add(this.lblPage);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnPrevious);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnAddPerson2);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAddPerson);
             this.Controls.Add(this.lblTitle);
@@ -325,5 +391,10 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnAddPerson;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnAddPerson2;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Label lblPage;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -179,16 +179,28 @@ namespace DVLD_DataAccess
             return isFound;
         }
 
-        public static DataTable GetAllPeople()
+        // Ged Paged
+        public static DataTable GetPaged(int PageNumber, int RowsPerPage ,
+            string FilterColumn , string FilterValue)
         {
             DataTable dt = new DataTable();
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand command = new SqlCommand("People.GetAll", connection))
+                using (SqlCommand command = new SqlCommand("People.GetPaged", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@PageNumber", SqlDbType.Int).Value = PageNumber;
+                    command.Parameters.Add("@RowsPerPage", SqlDbType.Int).Value = RowsPerPage;
+
+                    //for filter
+                    command.Parameters.Add("@FilterColumn", SqlDbType.NVarChar,50).Value 
+                        = string.IsNullOrEmpty(FilterColumn) ? (object)DBNull.Value : FilterColumn;
+
+                    command.Parameters.Add("@FilterValue", SqlDbType.NVarChar,100).Value
+                         = string.IsNullOrEmpty(FilterValue) ? (object)DBNull.Value : FilterValue;
+
 
                     connection.Open();
 
@@ -206,6 +218,49 @@ namespace DVLD_DataAccess
             return dt;
         }
 
+        // get Paged info
+        public static bool GetPagingInfo(int RowsPerPage, ref int TotalRecords, ref int TotalPage)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("People.GetPagingInfo", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add("@RowsPerPage", SqlDbType.Int).Value = RowsPerPage;
+
+
+                    var TotalRecordsParam = command.Parameters.Add("@TotalRecords", SqlDbType.Int);
+                    TotalRecordsParam.Direction = ParameterDirection.Output;
+
+                    var TotalPageParam = command.Parameters.Add("@TotalPage", SqlDbType.Int);
+                    TotalPageParam.Direction = ParameterDirection.Output;
+
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    if (TotalRecordsParam != null && TotalPageParam != null)
+                    {
+                        TotalRecords = (int)TotalRecordsParam.Value;
+                        TotalPage = (int)TotalPageParam.Value;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
+            }
+
+            return true;
+        }
+
+
         public static int AddNewPerson(string FirstName, string SecondName, string ThirdName,
             string LastName, string NationalNo, DateTime DateOfBirth, short Gendor, string Address,
             string Phone, string Email, int NationalityCountryID, string ImagePath)
@@ -221,16 +276,16 @@ namespace DVLD_DataAccess
 
                     command.Parameters.AddWithValue("@FirstName", FirstName);
                     command.Parameters.AddWithValue("@SecondName", SecondName);
-                    command.Parameters.AddWithValue("@ThirdName", string.IsNullOrEmpty(ThirdName) ? "" : ThirdName);
+                    command.Parameters.AddWithValue("@ThirdName", string.IsNullOrEmpty(ThirdName) ? (object)DBNull.Value : ThirdName);
                     command.Parameters.AddWithValue("@LastName", LastName);
                     command.Parameters.AddWithValue("@NationalNo", NationalNo);
                     command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
                     command.Parameters.AddWithValue("@Gendor", Gendor);
                     command.Parameters.AddWithValue("@Address", Address);
                     command.Parameters.AddWithValue("@Phone", Phone);
-                    command.Parameters.AddWithValue("@Email", string.IsNullOrEmpty(Email) ? "" : Email);
+                    command.Parameters.AddWithValue("@Email", string.IsNullOrEmpty(Email) ? (object)DBNull.Value : Email);
                     command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
-                    command.Parameters.AddWithValue("@ImagePath", string.IsNullOrEmpty(ImagePath) ? "" : ImagePath);
+                    command.Parameters.AddWithValue("@ImagePath", string.IsNullOrEmpty(ImagePath) ? (object)DBNull.Value : ImagePath);
 
                     var outputParam = command.Parameters.Add("@PersonID", SqlDbType.Int);
                     outputParam.Direction = ParameterDirection.Output;
@@ -265,16 +320,16 @@ namespace DVLD_DataAccess
                     command.Parameters.AddWithValue("@PersonID", PersonID);
                     command.Parameters.AddWithValue("@FirstName", FirstName);
                     command.Parameters.AddWithValue("@SecondName", SecondName);
-                    command.Parameters.AddWithValue("@ThirdName", string.IsNullOrEmpty(ThirdName) ? "" : ThirdName);
+                    command.Parameters.AddWithValue("@ThirdName", string.IsNullOrEmpty(ThirdName) ? (object)DBNull.Value: ThirdName);
                     command.Parameters.AddWithValue("@LastName", LastName);
                     command.Parameters.AddWithValue("@NationalNo", NationalNo);
                     command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
                     command.Parameters.AddWithValue("@Gendor", Gendor);
                     command.Parameters.AddWithValue("@Address", Address);
                     command.Parameters.AddWithValue("@Phone", Phone);
-                    command.Parameters.AddWithValue("@Email", string.IsNullOrEmpty(Email) ? "" : Email);
+                    command.Parameters.AddWithValue("@Email", string.IsNullOrEmpty(Email) ? (object)DBNull.Value : Email);
                     command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
-                    command.Parameters.AddWithValue("@ImagePath", string.IsNullOrEmpty(ImagePath) ? "" : ImagePath);
+                    command.Parameters.AddWithValue("@ImagePath", string.IsNullOrEmpty(ImagePath) ? (object)DBNull.Value : ImagePath);
 
                     var outputParam = command.Parameters.Add("@IsUpdated", SqlDbType.Bit);
                     outputParam.Direction = ParameterDirection.Output;

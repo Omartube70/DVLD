@@ -11,44 +11,61 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using DVLD.Classes;
 using DVLD_Buisness;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DVLD.People
 {
     public partial class frmListPeople : Form
     {
+        private const int _RowsPerPage = 100;
+        private static int _CurrentPageNumber = 1;
+        private static int TotalPages;
 
-      private static DataTable _dtAllPeople = clsPerson.GetAllPeople();
-        
+        private static DataTable _dtAllPeople;
+
         //only select the columns that you want to show in the grid
-      private DataTable _dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
-                                                       "FirstName", "SecondName", "ThirdName", "LastName",
-                                                       "GendorCaption", "DateOfBirth", "CountryName",
-                                                       "Phone", "Email");
+        private DataTable _dtPeople;
 
-        private void _RefreshPeoplList()
+        private void _RefreshPeoplList(string FilterColumn = "")
         {
-            _dtAllPeople = clsPerson.GetAllPeople();
+            if (!string.IsNullOrEmpty(FilterColumn))
+            {
+                _dtAllPeople = clsPerson.GetPaged(FilterColumn: FilterColumn, FilterValue: txtFilterValue.Text.Trim());
+            }
+            else
+            {
+                _dtAllPeople = clsPerson.GetPaged(_CurrentPageNumber, _RowsPerPage);
+            }
+
             _dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID", "NationalNo",
                                                        "FirstName", "SecondName", "ThirdName", "LastName",
                                                        "GendorCaption", "DateOfBirth", "CountryName",
                                                        "Phone", "Email");
 
             dgvPeople.DataSource = _dtPeople;
-            lblRecordsCount.Text = dgvPeople.Rows.Count.ToString();
+        }
+
+        private void _UpdateRecordsAndPageInfo()
+        {
+            int TotalRecords = 0 , PagedRecords = 0;
+
+            if(clsPerson.GetPagingInfo(ref TotalRecords, ref PagedRecords, _RowsPerPage))
+            {
+                TotalPages = PagedRecords;
+                lblRecordsCount.Text = TotalRecords.ToString();
+                lblPage.Text = _CurrentPageNumber + "/" + TotalPages.ToString();
+            }
         }
 
         public frmListPeople()
         {
             InitializeComponent();
+            _UpdateRecordsAndPageInfo();
         }
 
         private void frmListPeople_Load(object sender, EventArgs e)
         {
-                 
-            dgvPeople.DataSource = _dtPeople;
+            _RefreshPeoplList();
             cbFilterBy.SelectedIndex = 0;
-            lblRecordsCount.Text = dgvPeople.Rows.Count.ToString();
             if (dgvPeople.Rows.Count > 0)
             {
 
@@ -91,10 +108,10 @@ namespace DVLD.People
             }
 
         }
-    
+
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
         {
-           
+
             string FilterColumn = "";
             //Map Selected Filter to real Column name 
             switch (cbFilterBy.Text)
@@ -148,21 +165,11 @@ namespace DVLD.People
             //Reset the filters in case nothing selected or filter value conains nothing.
             if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
             {
-                _dtPeople.DefaultView.RowFilter = "";
-                lblRecordsCount.Text = dgvPeople.Rows.Count.ToString();
+                _RefreshPeoplList();
                 return;
             }
 
-
-            if (FilterColumn == "PersonID")
-                //in this case we deal with integer not string.
-                
-              _dtPeople.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtFilterValue.Text.Trim());
-            else
-             _dtPeople.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtFilterValue.Text.Trim());
-       
-         lblRecordsCount.Text= dgvPeople.Rows.Count.ToString();
-
+             _RefreshPeoplList(FilterColumn);
         }
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
@@ -259,6 +266,43 @@ namespace DVLD.People
             //we allow number incase person id is selected.
             if (cbFilterBy.Text=="Person ID")
               e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtNext_Click(object sender, EventArgs e)
+        {
+            //Get Next Page
+            _CurrentPageNumber++;
+
+            _RefreshPeoplList();
+
+            lblPage.Text = _CurrentPageNumber.ToString()  + "/" + TotalPages;
+
+            if (_CurrentPageNumber == TotalPages)
+                btnNext.Enabled = false;
+            
+            else
+                btnNext.Enabled = true;
+
+
+            btnPrevious.Enabled = (_CurrentPageNumber > 1);
+        }
+
+        private void txtPrevious_Click(object sender, EventArgs e)
+        {
+            //Get Previous Page
+            _CurrentPageNumber--;
+
+            _RefreshPeoplList();
+
+            lblPage.Text = _CurrentPageNumber.ToString() + "/" + TotalPages;
+
+            if (_CurrentPageNumber == TotalPages)
+                btnNext.Enabled = false;
+
+            else
+                btnNext.Enabled = true;
+
+            btnPrevious.Enabled = (_CurrentPageNumber > 1);
         }
     }
 }
