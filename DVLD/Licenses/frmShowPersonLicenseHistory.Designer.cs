@@ -40,7 +40,7 @@
             // 
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTitle.Location = new System.Drawing.Point(12, 12);
+            this.lblTitle.Location = new System.Drawing.Point(12, 2);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(1062, 39);
             this.lblTitle.TabIndex = 129;
@@ -79,10 +79,10 @@
             // 
             this.ctrlDriverLicenses1.BackColor = System.Drawing.Color.White;
             this.ctrlDriverLicenses1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlDriverLicenses1.Location = new System.Drawing.Point(13, 437);
+            this.ctrlDriverLicenses1.Location = new System.Drawing.Point(19, 387);
             this.ctrlDriverLicenses1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlDriverLicenses1.Name = "ctrlDriverLicenses1";
-            this.ctrlDriverLicenses1.Size = new System.Drawing.Size(1061, 342);
+            this.ctrlDriverLicenses1.Size = new System.Drawing.Size(1061, 310);
             this.ctrlDriverLicenses1.TabIndex = 2;
             // 
             // ctrlPersonCardWithFilter1
@@ -91,7 +91,7 @@
             this.ctrlPersonCardWithFilter1.BackColor = System.Drawing.Color.White;
             this.ctrlPersonCardWithFilter1.FilterEnabled = true;
             this.ctrlPersonCardWithFilter1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(241, 46);
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(237, 37);
             this.ctrlPersonCardWithFilter1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
             this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
@@ -104,7 +104,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(1086, 829);
+            this.ClientSize = new System.Drawing.Size(1086, 698);
             this.Controls.Add(this.ctrlPersonCardWithFilter1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pbPersonImage);

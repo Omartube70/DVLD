@@ -61,9 +61,9 @@
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.lblLocalDrivingLicenseApplicationID);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(3, 16);
+            this.groupBox1.Location = new System.Drawing.Point(5, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(892, 132);
+            this.groupBox1.Size = new System.Drawing.Size(892, 110);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Driving License Application Info";
@@ -189,10 +189,10 @@
             // 
             this.ctrlApplicationBasicInfo1.BackColor = System.Drawing.Color.White;
             this.ctrlApplicationBasicInfo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlApplicationBasicInfo1.Location = new System.Drawing.Point(5, 151);
+            this.ctrlApplicationBasicInfo1.Location = new System.Drawing.Point(5, 121);
             this.ctrlApplicationBasicInfo1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlApplicationBasicInfo1.Name = "ctrlApplicationBasicInfo1";
-            this.ctrlApplicationBasicInfo1.Size = new System.Drawing.Size(900, 217);
+            this.ctrlApplicationBasicInfo1.Size = new System.Drawing.Size(900, 199);
             this.ctrlApplicationBasicInfo1.TabIndex = 0;
             // 
             // ctrlDrivingLicenseApplicationInfo
@@ -205,7 +205,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ctrlDrivingLicenseApplicationInfo";
-            this.Size = new System.Drawing.Size(909, 376);
+            this.Size = new System.Drawing.Size(909, 327);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

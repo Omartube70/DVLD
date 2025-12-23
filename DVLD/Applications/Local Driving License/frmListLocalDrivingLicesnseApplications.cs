@@ -20,18 +20,60 @@ namespace DVLD.Tests
 {
     public partial class frmListLocalDrivingLicesnseApplications : Form
     {
+        private const int _RowsPerPage = 50;
+        private static int _CurrentPageNumber = 1;
+        private static int TotalPages;
+        private static int RecordsCount;
+
         private DataTable _dtAllLocalDrivingLicenseApplications;
+
+        //only select the columns that you want to show in the grid
+        private DataTable _dtLocalDrivingLicenseApplications;
+
         public frmListLocalDrivingLicesnseApplications()
         {
             InitializeComponent();
+            _UpdateRecordsAndPageInfo();
         }
+
+
+        private void _RefresLocalDrivingLicenseApplicationslList(string FilterColumn = "", string FilterValue = "")
+        {
+            if (!string.IsNullOrEmpty(FilterColumn))
+            {
+                _dtAllLocalDrivingLicenseApplications = clsLocalDrivingLicenseApplication.GetPaged(FilterColumn: FilterColumn, FilterValue: FilterValue);
+            }
+            else
+            {
+                _dtAllLocalDrivingLicenseApplications = clsLocalDrivingLicenseApplication.GetPaged(_CurrentPageNumber, _RowsPerPage);
+            }
+
+            _dtLocalDrivingLicenseApplications = _dtAllLocalDrivingLicenseApplications.DefaultView.ToTable(false, "LocalDrivingLicenseApplicationID", 
+                "ClassName", "NationalNo", "FullName",
+                  "ApplicationDate", "PassedTestCount","status");
+
+            dgvLocalDrivingLicenseApplications.DataSource = _dtLocalDrivingLicenseApplications;
+            lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.RowCount + "/" + RecordsCount;
+        }
+
+        private void _UpdateRecordsAndPageInfo()
+        {
+            int TotalRecords = 0, PagedRecords = 0;
+
+            if (clsLocalDrivingLicenseApplication.GetPagingInfo(ref TotalRecords, ref PagedRecords, _RowsPerPage))
+            {
+                TotalPages = PagedRecords;
+                RecordsCount = TotalRecords;
+                lblRecordsCount.Text = RecordsCount.ToString();
+                lblPage.Text = _CurrentPageNumber + "/" + TotalPages.ToString();
+            }
+        }
+
 
         private void frmListLocalDrivingLicesnseApplications_Load(object sender, EventArgs e)
         {
-            _dtAllLocalDrivingLicenseApplications = clsLocalDrivingLicenseApplication.GetAllLocalDrivingLicenseApplications();
-            dgvLocalDrivingLicenseApplications.DataSource = _dtAllLocalDrivingLicenseApplications;
-            
-            lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
+            _RefresLocalDrivingLicenseApplicationslList();
+            btnNext.Enabled = (TotalPages > 1);
             if (dgvLocalDrivingLicenseApplications.Rows.Count>0)
             {
 
@@ -87,6 +129,7 @@ namespace DVLD.Tests
         {
 
             string FilterColumn = "";
+            string FilterValue = txtFilterValue.Text.Trim();
             //Map Selected Filter to real Column name 
             switch (cbFilterBy.Text)
             {
@@ -116,21 +159,13 @@ namespace DVLD.Tests
             }
 
             //Reset the filters in case nothing selected or filter value conains nothing.
-            if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
+            if (FilterValue == "" || FilterColumn == "None")
             {
-                _dtAllLocalDrivingLicenseApplications.DefaultView.RowFilter = "";
-                lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
+                _RefresLocalDrivingLicenseApplicationslList();
                 return;
             }
 
-
-            if (FilterColumn == "LocalDrivingLicenseApplicationID")
-                //in this case we deal with integer not string.
-                _dtAllLocalDrivingLicenseApplications.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtFilterValue.Text.Trim());
-            else
-                _dtAllLocalDrivingLicenseApplications.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtFilterValue.Text.Trim());
-
-            lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
+            _RefresLocalDrivingLicenseApplicationslList(FilterColumn, FilterValue);
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -405,6 +440,43 @@ namespace DVLD.Tests
 
             frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(localDrivingLicenseApplication.ApplicantPersonID);
             frm.ShowDialog();
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            //Get Previous Page
+            _CurrentPageNumber--;
+
+            _RefresLocalDrivingLicenseApplicationslList();
+
+            lblPage.Text = _CurrentPageNumber.ToString() + "/" + TotalPages;
+
+            if (_CurrentPageNumber == TotalPages)
+                btnNext.Enabled = false;
+
+            else
+                btnNext.Enabled = true;
+
+            btnPrevious.Enabled = (_CurrentPageNumber > 1);
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            //Get Next Page
+            _CurrentPageNumber++;
+
+            _RefresLocalDrivingLicenseApplicationslList();
+
+            lblPage.Text = _CurrentPageNumber.ToString() + "/" + TotalPages;
+
+            if (_CurrentPageNumber == TotalPages)
+                btnNext.Enabled = false;
+
+            else
+                btnNext.Enabled = true;
+
+
+            btnPrevious.Enabled = (_CurrentPageNumber > 1);
         }
     }
 }

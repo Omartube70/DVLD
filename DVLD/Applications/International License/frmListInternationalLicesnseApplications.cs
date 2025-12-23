@@ -18,11 +18,51 @@ namespace DVLD.Applications.International_License
 {
     public partial class frmListInternationalLicesnseApplications : Form
     {
+        private const int _RowsPerPage = 100;
+        private static int _CurrentPageNumber = 1;
+        private static int TotalPages;
+        private static int RecordsCount;
+
+
+        private static DataTable _dtAllInternationalLicenseApplications;
         private DataTable _dtInternationalLicenseApplications;
+
+
+        private void _RefreshInternationalLicenseApplicationsList(string FilterColumn = "", string FilterValue = "")
+        {
+            if (!string.IsNullOrEmpty(FilterColumn))
+            {
+                _dtAllInternationalLicenseApplications = clsInternationalLicense.GetPaged(FilterColumn: FilterColumn, FilterValue: FilterValue);
+            }
+            else
+            {
+                _dtAllInternationalLicenseApplications = clsInternationalLicense.GetPaged(_CurrentPageNumber, _RowsPerPage);
+            }
+
+            _dtInternationalLicenseApplications = _dtAllInternationalLicenseApplications.DefaultView.ToTable(false, "InternationalLicenseID", "ApplicationID",
+                                                       "DriverID", "IssuedUsingLocalLicenseID", "IssueDate", "ExpirationDate","IsActive");
+
+            dgvInternationalLicenses.DataSource = _dtInternationalLicenseApplications;
+            lblInternationalLicensesRecords.Text = dgvInternationalLicenses.RowCount + "/" + RecordsCount;
+        }
+
+        private void _UpdateRecordsAndPageInfo()
+        {
+            int TotalRecords = 0, PagedRecords = 0;
+
+            if (clsInternationalLicense.GetPagingInfo(ref TotalRecords, ref PagedRecords, _RowsPerPage))
+            {
+                TotalPages = PagedRecords;
+                RecordsCount = TotalRecords;
+                lblInternationalLicensesRecords.Text = RecordsCount.ToString();
+                lblPage.Text = _CurrentPageNumber + "/" + TotalPages.ToString();
+            }
+        }
 
         public frmListInternationalLicesnseApplications()
         {
             InitializeComponent();
+            _UpdateRecordsAndPageInfo();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -32,11 +72,9 @@ namespace DVLD.Applications.International_License
 
         private void frmListInternationalLicesnseApplications_Load(object sender, EventArgs e)
         {
-            _dtInternationalLicenseApplications = clsInternationalLicense.GetAllInternationalLicenses();
-            cbFilterBy.SelectedIndex= 0;
-
-            dgvInternationalLicenses.DataSource = _dtInternationalLicenseApplications;
-                   lblInternationalLicensesRecords.Text = dgvInternationalLicenses.Rows.Count.ToString();
+            _RefreshInternationalLicenseApplicationsList();
+            cbFilterBy.SelectedIndex = 0;
+            btnNext.Enabled = (TotalPages > 1);
 
             if (dgvInternationalLicenses.Rows.Count > 0)
             {
@@ -120,9 +158,7 @@ namespace DVLD.Applications.International_License
                 if (cbFilterBy.Text == "None")
                 {
                     txtFilterValue.Enabled = false;
-                    //_dtDetainedLicenses.DefaultView.RowFilter = "";
-                    //lblTotalRecords.Text = dgvDetainedLicenses.Rows.Count.ToString();
-
+               
                 }
                 else
                     txtFilterValue.Enabled = true;
@@ -139,8 +175,6 @@ namespace DVLD.Applications.International_License
 
             switch (FilterValue)
             {
-                case "All":
-                    break;
                 case "Yes":
                     FilterValue = "1";
                     break;
@@ -149,14 +183,7 @@ namespace DVLD.Applications.International_License
                     break;
             }
 
-
-            if (FilterValue == "All")
-                _dtInternationalLicenseApplications.DefaultView.RowFilter = "";
-            else
-                //in this case we deal with numbers not string.
-                _dtInternationalLicenseApplications.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, FilterValue);
-
-            lblInternationalLicensesRecords.Text = _dtInternationalLicenseApplications.Rows.Count.ToString();
+            _RefreshInternationalLicenseApplicationsList(FilterColumn, FilterValue);
         }
 
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
@@ -164,6 +191,7 @@ namespace DVLD.Applications.International_License
           
 
             string FilterColumn = "";
+            string FilterValue = txtFilterValue.Text.Trim();
             //Map Selected Filter to real Column name 
             switch (cbFilterBy.Text)
             {
@@ -171,10 +199,8 @@ namespace DVLD.Applications.International_License
                     FilterColumn = "InternationalLicenseID";
                     break;
                 case "Application ID":
-                    {
                         FilterColumn = "ApplicationID";
                         break;
-                    };
 
                 case "Driver ID":
                     FilterColumn = "DriverID";
@@ -194,26 +220,56 @@ namespace DVLD.Applications.International_License
                     break;
             }
 
+            _RefreshInternationalLicenseApplicationsList(FilterColumn, FilterValue);
 
-            //Reset the filters in case nothing selected or filter value conains nothing.
-            if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
-            {
-                _dtInternationalLicenseApplications.DefaultView.RowFilter = "";
-                lblInternationalLicensesRecords.Text = dgvInternationalLicenses.Rows.Count.ToString();
-                return;
-            }
-
-
-          
-            _dtInternationalLicenseApplications.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtFilterValue.Text.Trim());
-           
-            lblInternationalLicensesRecords.Text = _dtInternationalLicenseApplications.Rows.Count.ToString();
         }
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             //we allow numbers only becasue all fiters are numbers.
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            //Get Previous Page
+            _CurrentPageNumber--;
+
+            _RefreshInternationalLicenseApplicationsList();
+
+            lblPage.Text = _CurrentPageNumber.ToString() + "/" + TotalPages;
+
+            if (_CurrentPageNumber == TotalPages)
+                btnNext.Enabled = false;
+
+            else
+                btnNext.Enabled = true;
+
+            btnPrevious.Enabled = (_CurrentPageNumber > 1);
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            //Get Next Page
+            _CurrentPageNumber++;
+
+            _RefreshInternationalLicenseApplicationsList();
+
+            lblPage.Text = _CurrentPageNumber.ToString() + "/" + TotalPages;
+
+            if (_CurrentPageNumber == TotalPages)
+                btnNext.Enabled = false;
+
+            else
+                btnNext.Enabled = true;
+
+
+            btnPrevious.Enabled = (_CurrentPageNumber > 1);
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
 
         }
     }

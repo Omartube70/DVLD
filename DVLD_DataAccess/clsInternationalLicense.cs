@@ -73,16 +73,29 @@ namespace DVLD_DataAccess
             return isFound;
         }
 
-        public static DataTable GetAllInternationalLicenses()
+
+        // Ged Paged
+        public static DataTable GetPaged(int PageNumber, int RowsPerPage,
+            string FilterColumn, string FilterValue)
         {
             DataTable dt = new DataTable();
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand command = new SqlCommand("InternationalLicenses.GetAll", connection))
+                using (SqlCommand command = new SqlCommand("InternationalLicenses.GetPaged", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@PageNumber", SqlDbType.Int).Value = PageNumber;
+                    command.Parameters.Add("@RowsPerPage", SqlDbType.Int).Value = RowsPerPage;
+
+                    //for filter
+                    command.Parameters.Add("@FilterColumn", SqlDbType.NVarChar, 50).Value
+                        = string.IsNullOrEmpty(FilterColumn) ? (object)DBNull.Value : FilterColumn;
+
+                    command.Parameters.Add("@FilterValue", SqlDbType.NVarChar, 100).Value
+                         = string.IsNullOrEmpty(FilterValue) ? (object)DBNull.Value : FilterValue;
+
 
                     connection.Open();
 
@@ -99,6 +112,49 @@ namespace DVLD_DataAccess
 
             return dt;
         }
+
+        // get Paged info
+        public static bool GetPagingInfo(int RowsPerPage, ref int TotalRecords, ref int TotalPage)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand("InternationalLicenses.GetPagingInfo", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add("@RowsPerPage", SqlDbType.Int).Value = RowsPerPage;
+
+
+                    var TotalRecordsParam = command.Parameters.Add("@TotalRecords", SqlDbType.Int);
+                    TotalRecordsParam.Direction = ParameterDirection.Output;
+
+                    var TotalPageParam = command.Parameters.Add("@TotalPage", SqlDbType.Int);
+                    TotalPageParam.Direction = ParameterDirection.Output;
+
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    if (TotalRecordsParam != null && TotalPageParam != null)
+                    {
+                        TotalRecords = (int)TotalRecordsParam.Value;
+                        TotalPage = (int)TotalPageParam.Value;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLog.WriteEntry("DVLD", "Error: " + ex.Message, EventLogEntryType.Error);
+            }
+
+            return true;
+        }
+
 
         public static DataTable GetDriverInternationalLicenses(int DriverID)
         {

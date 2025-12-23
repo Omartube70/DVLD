@@ -125,10 +125,15 @@ namespace DVLD_Buisness
 
         }
 
-        public static DataTable GetAllInternationalLicenses()
-        {
-            return clsInternationalLicenseData.GetAllInternationalLicenses();
 
+        public static DataTable GetPaged(int PageNumber = 1, int RowsPerPage = 100, string FilterColumn = null, string FilterValue = null)
+        {
+            return clsInternationalLicenseData.GetPaged(PageNumber, RowsPerPage, FilterColumn, FilterValue);
+        }
+
+        public static bool GetPagingInfo(ref int TotalRecords, ref int TotalPage, int RowsPerPage = 100)
+        {
+            return clsInternationalLicenseData.GetPagingInfo(RowsPerPage, ref TotalRecords, ref TotalPage);
         }
 
         public bool Save()

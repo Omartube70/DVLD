@@ -32,7 +32,7 @@ namespace DVLD.Drivers
             _UpdateRecordsAndPageInfo();
         }
 
-        private void _RefreshPeoplList(string FilterColumn = "", string FilterValue = "")
+        private void _RefreshDriverslList(string FilterColumn = "", string FilterValue = "")
         {
             if (!string.IsNullOrEmpty(FilterColumn))
             {
@@ -72,7 +72,8 @@ namespace DVLD.Drivers
 
         private void frmListDrivers_Load(object sender, EventArgs e)
         {
-            _RefreshPeoplList();
+            _RefreshDriverslList();
+            btnNext.Enabled = (TotalPages > 1);
             cbFilterBy.SelectedIndex = 0;
 
             if (dgvDrivers.Rows.Count>0)
@@ -119,6 +120,7 @@ namespace DVLD.Drivers
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
         {
             string FilterColumn = "";
+            string FilterValue = txtFilterValue.Text.Trim();
             //Map Selected Filter to real Column name 
             switch (cbFilterBy.Text)
             {
@@ -146,21 +148,13 @@ namespace DVLD.Drivers
             }
 
             //Reset the filters in case nothing selected or filter value conains nothing.
-            if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
+            if (FilterValue == "" || FilterColumn == "None")
             {
-                _dtAllDrivers.DefaultView.RowFilter = "";
-                lblRecordsCount.Text = dgvDrivers.Rows.Count.ToString();
+                _RefreshDriverslList();
                 return;
             }
 
-
-            if (FilterColumn != "FullName" && FilterColumn != "NationalNo")
-                //in this case we deal with numbers not string.
-                _dtAllDrivers.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtFilterValue.Text.Trim());
-            else
-                _dtAllDrivers.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtFilterValue.Text.Trim());
-
-            lblRecordsCount.Text = _dtAllDrivers.Rows.Count.ToString();
+            _RefreshDriverslList(FilterColumn, FilterValue);
         }
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
@@ -199,7 +193,7 @@ namespace DVLD.Drivers
             //Get Previous Page
             _CurrentPageNumber--;
 
-            _RefreshPeoplList();
+            _RefreshDriverslList();
 
             lblPage.Text = _CurrentPageNumber.ToString() + "/" + TotalPages;
 
@@ -217,7 +211,7 @@ namespace DVLD.Drivers
             //Get Next Page
             _CurrentPageNumber++;
 
-            _RefreshPeoplList();
+            _RefreshDriverslList();
 
             lblPage.Text = _CurrentPageNumber.ToString() + "/" + TotalPages;
 

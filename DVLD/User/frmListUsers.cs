@@ -67,7 +67,7 @@ namespace DVLD.User
         private void frmListUsers_Load(object sender, EventArgs e)
         {
             _RefreshUsersList();
-
+            btnNext.Enabled = (TotalPages > 1);
             cbFilterBy.SelectedIndex = 0;
 
             dgvUsers.Columns[0].HeaderText = "User ID";
@@ -150,7 +150,7 @@ namespace DVLD.User
             }
 
             //Reset the filters in case nothing selected or filter value conains nothing.
-            if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
+            if (FilterValue == "" || FilterColumn == "None")
             {
                 _RefreshUsersList();
                 return;

@@ -169,12 +169,18 @@ namespace DVLD_Buisness
             return false;
         }
 
-        public static DataTable GetAllLocalDrivingLicenseApplications()
+        public static DataTable GetPaged(int PageNumber = 1, int RowsPerPage = 100, string FilterColumn = null, string FilterValue = null)
         {
-            return clsLocalDrivingLicenseApplicationData.GetAllLocalDrivingLicenseApplications();
+            return clsLocalDrivingLicenseApplicationData.GetPaged(PageNumber, RowsPerPage, FilterColumn, FilterValue);
         }
 
-        public  bool Delete()
+        public static bool GetPagingInfo(ref int TotalRecords, ref int TotalPage, int RowsPerPage = 100)
+        {
+            return clsLocalDrivingLicenseApplicationData.GetPagingInfo(RowsPerPage, ref TotalRecords, ref TotalPage);
+        }
+
+
+        public bool Delete()
         {
             bool IsLocalDrivingApplicationDeleted = false;
             bool IsBaseApplicationDeleted = false;

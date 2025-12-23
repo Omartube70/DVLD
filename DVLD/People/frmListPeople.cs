@@ -69,6 +69,7 @@ namespace DVLD.People
         private void frmListPeople_Load(object sender, EventArgs e)
         {
             _RefreshPeoplList();
+            btnNext.Enabled = (TotalPages > 1);
             cbFilterBy.SelectedIndex = 0;
             if (dgvPeople.Rows.Count > 0)
             {
@@ -168,7 +169,7 @@ namespace DVLD.People
             }
 
             //Reset the filters in case nothing selected or filter value conains nothing.
-            if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
+            if (FilterValue == "" || FilterColumn == "None")
             {
                 _RefreshPeoplList();
                 return;
